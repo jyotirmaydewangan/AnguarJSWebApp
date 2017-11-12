@@ -1,0 +1,15 @@
+<h2>Dictionary</h2>
+<div class="row-fluid">
+    <div class="span8">
+        <div ng-controller="DictionaryCtrl">
+            <div ng-show="DictionaryForm.show">
+                <form class="form-inline" ng-submit="searchWord(DictionaryForm.text)">
+                    <input type="text" class="span8" placeholder="Search Word" ng-model="DictionaryForm.text.word">
+                    <input type="text" ng-show="false" ng-model="DictionaryForm.text.lang" ng-init="DictionaryForm.text.lang ='urdu'">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </form>
+            </div>
+            <h6>{{dictionary}}</h6>
+        </div>
+    </div>
+</div>
