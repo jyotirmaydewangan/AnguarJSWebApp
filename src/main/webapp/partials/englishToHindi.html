@@ -1,15 +1,56 @@
-<h2>Dictionary</h2>
 <div class="row-fluid">
-    <div class="span8">
-        <div ng-controller="DictionaryCtrl">
-            <div ng-show="DictionaryForm.show">
-                <form class="form-inline" ng-submit="searchWord(DictionaryForm.text)">
-                    <input type="text" class="span8" placeholder="Search Word" ng-model="DictionaryForm.text.word">
-                    <input type="text" ng-show="false" ng-model="DictionaryForm.text.lang" ng-init="DictionaryForm.text.lang ='hindi'">
-                    <button type="submit" class="btn btn-primary">Search</button>
-                </form>
+    <div class="span8" ng-controller="DictionaryCtrl">
+        <div ng-show="DictionaryForm.show">
+            <form class="form-inline" ng-submit="searchWord(DictionaryForm.text)">
+                <h2>Hindi Dictionary</h2>
+                <input type="text" class="span4" placeholder="Search Word" ng-model="DictionaryForm.text.word">
+                <input type="text" ng-show="false" ng-model="DictionaryForm.text.lang" ng-init="DictionaryForm.text.lang ='hindi'">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+        </div>
+        <div ng-show="target.show">
+            <h4>{{DictionaryForm.text.word}} meaning in hindi</h4>
+            <div ng-show="noun.show"><h6 >Noun</h6></div>
+            <div class="span12">
+                <div ng-repeat="wordNode in dictionary.targetWord">
+                    <div class="span3" ng-if="wordNode.partOfSpeech == 'noun'" ng-init="noun.show=true;target.show=true">{{wordNode.word}}</div>
+                </div>
             </div>
-            <h6>{{dictionary}}</h6>
+            <div ng-show="verb.show"><h6>Verb</h6></div>
+            <div class="span12">
+                <div ng-repeat="wordNode in dictionary.targetWord">
+                    <div class="span3" ng-if="wordNode.partOfSpeech == 'verb'" ng-init="verb.show=true;target.show=true">{{wordNode.word}}</div>
+                </div>
+            </div>
+            <div ng-show="adverb.show"><h6>Verb</h6></div>
+            <div class="span12">
+                <div ng-repeat="wordNode in dictionary.targetWord">
+                    <div class="span3" ng-if="wordNode.partOfSpeech == 'adverb'" ng-init="adverb.show=true;target.show=true">{{wordNode.word}}</div>
+                </div>
+            </div>
+            <div ng-show="adjective.show"><h6>Adjective</h6></div>
+            <div class="span12">
+                <div ng-repeat="wordNode in dictionary.targetWord">
+                    <div class="span3" ng-if="wordNode.partOfSpeech == 'adjective'" ng-init="adjective.show=true;target.show=true">{{wordNode.word}}</div>
+                </div>
+            </div>
+            <div ng-show="other.show"><h6>Other</h6></div>
+            <div class="span12">
+                <div ng-repeat="wordNode in dictionary.targetWord" >
+                    <div class="span3" ng-if="wordNode.partOfSpeech == '' || wordNode.partOfSpeech == 'text'" ng-init="other.show=true;target.show=true">{{wordNode.word}}</div>
+                </div>
+            </div>
+        </div>
+        <div ng-show="synonym.show">
+            <h4>Synonym</h4>
+            <div ng-repeat="synonyms in dictionary.synonym">
+                <div class="span12" ng-init="synonym.show=true">{{$index + 1}}.&nbsp;{{synonyms[0].definition}}</div>
+                <div class="span12">
+                    <div ng-repeat="synonym in synonyms">
+                        <div class="span6">{{synonym.word}}&nbsp;({{synonym.tWord}})</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

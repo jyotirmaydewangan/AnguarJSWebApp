@@ -14,8 +14,43 @@ function DictionaryCtrl($scope, DictionaryResource) {
         text: {}
     }
 
+    $scope.noun = {
+        show: false
+    }
+
+    $scope.verb = {
+        show: false
+    }
+
+    $scope.adverb = {
+        show: false
+    }
+
+    $scope.adjective = {
+        show: false
+    }
+
+    $scope.other = {
+        show: false
+    }
+
+    $scope.target = {
+        show: false
+    }
+
+    $scope.synonym = {
+        show: false
+    }
+
     $scope.searchWord = function (word) {
         if (word != undefined) {
+            $scope.synonym.show = false;
+            $scope.target.show = false;
+            $scope.noun.show = false;
+            $scope.verb.show = false;
+            $scope.adverb.show = false;
+            $scope.adjective.show = false;
+            $scope.other.show = false;
 
             DictionaryResource.get(word).$promise.then(function(result) {
                 $scope.dictionary = result;
