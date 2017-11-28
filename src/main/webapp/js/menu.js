@@ -3,9 +3,16 @@ var sidebarMenu = angular.module('sidebarMenu', ['ngRoute'])
         // browser reload doesn't work when html5 mode is turned on..
         //$locationProvider.html5Mode(true);
         $routeProvider
-            .when('/', {templateUrl: '/partials/englishToHindi.html'})
-            .when('/dictionary/hindi', {templateUrl : '/partials/englishToHindi.html'})
-            .when('/dictionary/urdu', {templateUrl : '/partials/englishToUrdu.html'})
+            .when('/', {templateUrl: '/partials/englishToHindi.html', controller:'DictionaryCtrl'})
+            .when('/dictionary/hindi', {templateUrl : '/partials/englishToHindi.html', controller:'DictionaryCtrl'})
+            .when('/dictionary/urdu', {templateUrl : '/partials/englishToUrdu.html', controller:'DictionaryCtrl'})
+
+            .when('/english-word/:word/meaning-in-hindi', {templateUrl : '/partials/englishToHindi.html', controller:'DictionaryCtrl'})
+            .when('/hindi-word/:word/meaning-in-english', {templateUrl : '/partials/hindiToEnglish.html', controller:'DictionaryCtrl'})
+
+            .when('/english-word/:word/meaning-in-urdu', {templateUrl : '/partials/englishToUrdu.html', controller:'DictionaryCtrl'})
+            .when('/urdu-word/:word/meaning-in-english', {templateUrl : '/partials/urduToEnglish.html', controller:'DictionaryCtrl'})
+
             .otherwise({redirectTo: '/'})
     });
 
@@ -43,13 +50,11 @@ sidebarMenu.factory('Menu', function () {
         {
             class: "",
             href: "/#/dictionary/hindi",
-            //href: "/persons",
             name: "English to Hindi"
         },
         {
             class: "",
             href: "/#/dictionary/urdu",
-            //href: "/persons",
             name: "English to Urdu"
         }
     ];
