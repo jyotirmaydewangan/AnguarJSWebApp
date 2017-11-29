@@ -135,13 +135,15 @@
         <div ng-show="synonym.show">
             <h4>Definition of {{searchBoxWord | capitalize}}</h4>
             <div ng-repeat="synonyms in dictionary.synonym">
-                <div class="span12" ng-init="synonym.show=true">{{$index + 1}}.&nbsp;<b>{{synonyms[0].partOfSpeech | capitalize}}</b>&nbsp;&nbsp;{{synonyms[0].definition | capitalize}}.</div>
+                <div class="span12" ng-init="synonym.show=true">{{$index + 1}}.&nbsp;<b>[{{synonyms[0].partOfSpeech | capitalize}}]</b>&nbsp;&nbsp;{{synonyms[0].definition | capitalize}}.</div>
                 <div class="span12">
                     <div ng-repeat="synonym in synonyms">
-                        <div class="span12"><a ng-href="#/english-word/{{synonym.word}}/meaning-in-urdu">{{synonym.word}}</a>&nbsp;(<a ng-href="#/urdu-word/{{synonym.tWord}}/meaning-in-english">{{synonym.tWord}}</a>)</div>
-                            <div class="span12"  ng-repeat="exmple in synonym.exmples">
+                        <div class="span6">
+                            <div class="span12"><a ng-href="#/english-word/{{synonym.word}}/meaning-in-urdu">{{synonym.word}}</a>&nbsp;(<a ng-href="#/urdu-word/{{synonym.tWord}}/meaning-in-english">{{synonym.tWord}}</a>)</div>
+                            <div class="span12" ng-repeat="exmple in synonym.exmples">
                                 <div class="span12">-&nbsp;{{exmple | capitalize}}.</div>
                             </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -159,7 +161,7 @@
         </div>
 
         <div ng-show="otherMeaning.show">
-            <div ng-repeat="(key, value) in dictionary.relatedBy">
+            <div ng-show="relatedByFilter(key)" ng-repeat="(key, value) in dictionary.relatedBy">
                 <div class="span12" ng-init="otherMeaning.show=true"><h4>{{key | capitalize}}</h4></div>
                 <div class="span12">
                     <div ng-repeat="wordNode in value">
@@ -168,6 +170,5 @@
                 </div>
             </div>
         </div>
-
     </div>
 </div>

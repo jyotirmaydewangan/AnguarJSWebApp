@@ -131,43 +131,5 @@
                 </div>
             </div>
         </div>
-
-        <div ng-show="synonym.show">
-            <h4>Definition of {{searchBoxWord}}</h4>
-            <div ng-repeat="synonyms in dictionary.synonym">
-                <div class="span12" ng-init="synonym.show=true">{{$index + 1}}.&nbsp;<b>{{synonyms[0].partOfSpeech | capitalize}}</b>&nbsp;&nbsp;{{synonyms[0].definition | capitalize}}.</div>
-                <div class="span12">
-                    <div ng-repeat="synonym in synonyms">
-                        <div class="span12"><a ng-href="#/english-word/{{synonym.word}}/meaning-in-hindi">{{synonym.word}}</a>&nbsp;({{synonym.tWord}})</div>
-                        <div class="span12" ng-init="example.show=true" ng-repeat="exmple in synonym.exmples">
-                            <div class="span12">&nbsp;{{exmple | capitalize}}.</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div ng-show="synonym.show">
-            <h4>Synonym of {{searchBoxWord}}</h4>
-            <div class="span12">
-                <div ng-repeat="synonyms in dictionary.synonym">
-                    <div ng-repeat="synonym in synonyms">
-                        <div class="span4" ng-init="synonym.show=true"><a ng-href="#/english-word/{{synonym.word}}/meaning-in-hindi">{{synonym.word}}</a>&nbsp;({{synonym.tWord}})</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div ng-show="otherMeaning.show">
-            <div ng-repeat="(key, value) in dictionary.relatedBy">
-                <div class="span12" ng-init="otherMeaning.show=true"><h4>{{key | capitalize}}</h4></div>
-                <div class="span12">
-                    <div ng-repeat="wordNode in value">
-                        <div class="span4"><a ng-href="#/english-word/{{wordNode.word}}/meaning-in-hindi">{{wordNode.word}}</a>&nbsp;({{wordNode.tWord}})</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
     </div>
 </div>
