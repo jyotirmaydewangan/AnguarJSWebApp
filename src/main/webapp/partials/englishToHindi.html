@@ -161,7 +161,7 @@
         </div>
 
         <div ng-show="otherMeaning.show">
-            <div ng-show="relatedByFilter(key)" ng-repeat="(key, value) in dictionary.relatedBy">
+            <div ng-repeat="(key, value) in dictionary.relatedBy">
                 <div class="span12" ng-init="otherMeaning.show=true"><h4>{{key | capitalize}}</h4></div>
                 <div class="span12">
                     <div ng-repeat="wordNode in value">
