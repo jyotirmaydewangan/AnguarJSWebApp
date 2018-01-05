@@ -12,13 +12,22 @@ dictionaryApp.factory('ReverseDictionaryResource', function ($resource) {
     return $resource('/api/reverseWord/:word/:lang', {}, {});
 });
 
+
 dictionaryApp.filter('capitalize', function() {
     return function(input) {
         return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
     }
 });
 
-function DictionaryCtrl($scope, $location,$routeParams, DictionaryResource, ReverseDictionaryResource) {
+dictionaryApp.factory('ControllerSharingData', function(){
+    return { source: '', target: ''};
+});
+
+dictionaryApp.controller("headerCtrl", function($scope, ControllerSharingData) {
+    $scope.HeaderData = ControllerSharingData;
+});
+
+dictionaryApp.controller("DictionaryCtrl", function($scope, $location,$routeParams, DictionaryResource, ReverseDictionaryResource, ControllerSharingData) {
 
     $scope.DictionaryForm = {
         show: true,
@@ -26,6 +35,7 @@ function DictionaryCtrl($scope, $location,$routeParams, DictionaryResource, Reve
     }
 
     $scope.DictionaryForm.text.word = $routeParams.word;
+
     $scope.searchBoxWord = '';
     $scope.noun = {
         show: false
@@ -108,6 +118,9 @@ function DictionaryCtrl($scope, $location,$routeParams, DictionaryResource, Reve
             $scope.particle.show = false;
             $scope.prefix.show = false;
 
+            ControllerSharingData.source = 'english';
+            ControllerSharingData.target = word.lang;
+
             if(word.word != undefined && $location.path().indexOf('/'+ word.word + '/') === -1) {
                 $location.url("/english-word/" + word.word + "/meaning-in-" + word.lang);
             } else {
@@ -140,6 +153,9 @@ function DictionaryCtrl($scope, $location,$routeParams, DictionaryResource, Reve
             $scope.particle.show = false;
             $scope.prefix.show = false;
 
+            ControllerSharingData.source = word.lang;
+            ControllerSharingData.target = 'english';
+
             if(word.word != undefined && $location.path().indexOf('/'+ word.word + '/') === -1) {
                 $location.url("/" + word.lang + "-word/" + word.word + "/meaning-in-english");
             } else {
@@ -149,4 +165,4 @@ function DictionaryCtrl($scope, $location,$routeParams, DictionaryResource, Reve
             }
         }
     }
-}
+});

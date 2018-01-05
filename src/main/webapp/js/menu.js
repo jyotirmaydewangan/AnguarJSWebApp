@@ -44,7 +44,7 @@ sidebarMenu.directive("menu", function () {
             '<li class="nav-header">Dictionary</li>' +
             '<li ng-repeat="item in menu.items" ng-class="getClass(item)"><a href="{{item.href}}">{{item.name}}</a></li>' +
             '</ul>'
-    }
+    };
 });
 
 sidebarMenu.factory('Menu', function () {
