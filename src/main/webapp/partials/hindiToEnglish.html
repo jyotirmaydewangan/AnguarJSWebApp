@@ -1,10 +1,16 @@
 <div class="row-fluid">
     <div class="span12" ng-controller="DictionaryCtrl">
-        <div ng-show="DictionaryForm.show">
+        <div class="span12" ng-show="DictionaryForm.show">
             <form class="form-inline" ng-submit="searchReverseWord(DictionaryForm.text)">
-                <input type="text" class="span4" placeholder="Search Word" ng-model="DictionaryForm.text.word">
-                <input type="text" ng-show="false" ng-model="DictionaryForm.text.lang" ng-init="DictionaryForm.text.lang ='hindi'">
-                <button type="submit" class="btn btn-primary">Search</button>
+                <div class="span6">
+                    <div class="span6">
+                        <input type="text" placeholder="Search Word" ng-model="DictionaryForm.text.word">
+                    </div>
+                        <input type="text" ng-show="false" ng-model="DictionaryForm.text.lang" ng-init="DictionaryForm.text.lang ='hindi'; HeaderData.source = 'hindi'; HeaderData.target = 'english'">
+                    <div class="span6">
+                        <button type="submit" class="span4 btn btn-primary">Search</button>
+                    </div>
+                </div>
             </form>
         </div>
 

@@ -35,6 +35,7 @@ dictionaryApp.controller("DictionaryCtrl", function($scope, $location,$routePara
     }
 
     $scope.DictionaryForm.text.word = $routeParams.word;
+    $scope.HeaderData = ControllerSharingData;
 
     $scope.searchBoxWord = '';
     $scope.noun = {
@@ -118,8 +119,8 @@ dictionaryApp.controller("DictionaryCtrl", function($scope, $location,$routePara
             $scope.particle.show = false;
             $scope.prefix.show = false;
 
-            ControllerSharingData.source = 'english';
-            ControllerSharingData.target = word.lang;
+            $scope.HeaderData.source = 'english';
+            $scope.HeaderData.target = word.lang;
 
             if(word.word != undefined && $location.path().indexOf('/'+ word.word + '/') === -1) {
                 $location.url("/english-word/" + word.word + "/meaning-in-" + word.lang);
@@ -153,8 +154,8 @@ dictionaryApp.controller("DictionaryCtrl", function($scope, $location,$routePara
             $scope.particle.show = false;
             $scope.prefix.show = false;
 
-            ControllerSharingData.source = word.lang;
-            ControllerSharingData.target = 'english';
+            $scope.HeaderData.source = word.lang;
+            $scope.HeaderData.target = 'english';
 
             if(word.word != undefined && $location.path().indexOf('/'+ word.word + '/') === -1) {
                 $location.url("/" + word.lang + "-word/" + word.word + "/meaning-in-english");
