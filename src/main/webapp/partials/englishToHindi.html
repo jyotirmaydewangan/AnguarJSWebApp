@@ -19,7 +19,7 @@
             <div class="span12" ng-show="noun.show"><b>Noun</b>
                 <div class="span12">
                     <div ng-repeat="wordNode in dictionary.targetWord">
-                        <div class="span3" ng-if="wordNode.partOfSpeech == 'noun'" ng-init="noun.show=true; target.show=true"><a ng-href="#/hindi-word/{{wordNode.word}}/meaning-in-english">{{wordNode.word}}</a></div>
+                        <div class="span3" ng-if="wordNode.partOfSpeech == 'noun'" ng-init="noun.show=true; target.show=true"><a ng-href="/hindi-word/{{wordNode.word}}/meaning-in-english">{{wordNode.word}}</a></div>
                     </div>
                 </div>
             </div>
@@ -27,7 +27,7 @@
             <div class="span12" ng-show="verb.show"><b>Verb</b>
                 <div class="span12">
                     <div ng-repeat="wordNode in dictionary.targetWord">
-                        <div class="span3" ng-if="wordNode.partOfSpeech == 'verb'" ng-init="verb.show=true;target.show=true"><a ng-href="#/hindi-word/{{wordNode.word}}/meaning-in-english">{{wordNode.word}}</a></div>
+                        <div class="span3" ng-if="wordNode.partOfSpeech == 'verb'" ng-init="verb.show=true;target.show=true"><a ng-href="/hindi-word/{{wordNode.word}}/meaning-in-english">{{wordNode.word}}</a></div>
                     </div>
                 </div>
             </div>
@@ -35,7 +35,7 @@
             <div class="span12" ng-show="adverb.show"><b>Adverb</b>
                 <div class="span12">
                     <div ng-repeat="wordNode in dictionary.targetWord">
-                        <div class="span3" ng-if="wordNode.partOfSpeech == 'adverb'" ng-init="adverb.show=true;target.show=true"><a ng-href="#/hindi-word/{{wordNode.word}}/meaning-in-english">{{wordNode.word}}</a></div>
+                        <div class="span3" ng-if="wordNode.partOfSpeech == 'adverb'" ng-init="adverb.show=true;target.show=true"><a ng-href="/hindi-word/{{wordNode.word}}/meaning-in-english">{{wordNode.word}}</a></div>
                     </div>
                 </div>
             </div>
@@ -43,7 +43,7 @@
             <div class="span12" ng-show="adjective.show"><b>Adjective</b>
                 <div class="span12">
                     <div ng-repeat="wordNode in dictionary.targetWord">
-                        <div class="span3" ng-if="wordNode.partOfSpeech == 'adjective'" ng-init="adjective.show=true;target.show=true"><a ng-href="#/hindi-word/{{wordNode.word}}/meaning-in-english">{{wordNode.word}}</a></div>
+                        <div class="span3" ng-if="wordNode.partOfSpeech == 'adjective'" ng-init="adjective.show=true;target.show=true"><a ng-href="/hindi-word/{{wordNode.word}}/meaning-in-english">{{wordNode.word}}</a></div>
                     </div>
                 </div>
             </div>
@@ -51,7 +51,7 @@
             <div class="span12" ng-show="preposition.show"><b>Preposition</b>
                 <div class="span12">
                     <div ng-repeat="wordNode in dictionary.targetWord">
-                        <div class="span3" ng-if="wordNode.partOfSpeech == 'preposition'" ng-init="preposition.show=true;target.show=true"><a ng-href="#/hindi-word/{{wordNode.word}}/meaning-in-english">{{wordNode.word}}</a></div>
+                        <div class="span3" ng-if="wordNode.partOfSpeech == 'preposition'" ng-init="preposition.show=true;target.show=true"><a ng-href="/hindi-word/{{wordNode.word}}/meaning-in-english">{{wordNode.word}}</a></div>
                     </div>
                 </div>
             </div>
@@ -59,7 +59,7 @@
             <div class="span12" ng-show="conjunction.show"><b>Conjunction</b>
                 <div class="span12">
                     <div ng-repeat="wordNode in dictionary.targetWord">
-                        <div class="span3" ng-if="wordNode.partOfSpeech == 'conjunction'" ng-init="conjunction.show=true;target.show=true"><a ng-href="#/hindi-word/{{wordNode.word}}/meaning-in-english">{{wordNode.word}}</a></div>
+                        <div class="span3" ng-if="wordNode.partOfSpeech == 'conjunction'" ng-init="conjunction.show=true;target.show=true"><a ng-href="/hindi-word/{{wordNode.word}}/meaning-in-english">{{wordNode.word}}</a></div>
                     </div>
                 </div>
             </div>
@@ -67,7 +67,7 @@
             <div class="span12" ng-show="pronoun.show"><b>Pronoun</b>
                 <div class="span12">
                     <div ng-repeat="wordNode in dictionary.targetWord">
-                        <div class="span3" ng-if="wordNode.partOfSpeech == 'pronoun'" ng-init="pronoun.show=true;target.show=true"><a ng-href="#/hindi-word/{{wordNode.word}}/meaning-in-english">{{wordNode.word}}</a></div>
+                        <div class="span3" ng-if="wordNode.partOfSpeech == 'pronoun'" ng-init="pronoun.show=true;target.show=true"><a ng-href="/hindi-word/{{wordNode.word}}/meaning-in-english">{{wordNode.word}}</a></div>
                     </div>
                 </div>
             </div>
@@ -75,7 +75,7 @@
             <div class="span12" ng-show="interjection.show"><b>Interjection</b>
                 <div class="span12">
                     <div ng-repeat="wordNode in dictionary.targetWord">
-                        <div class="span3" ng-if="wordNode.partOfSpeech == 'interjection'" ng-init="interjection.show=true;target.show=true"><a ng-href="#/hindi-word/{{wordNode.word}}/meaning-in-english">{{wordNode.word}}</a></div>
+                        <div class="span3" ng-if="wordNode.partOfSpeech == 'interjection'" ng-init="interjection.show=true;target.show=true"><a ng-href="/hindi-word/{{wordNode.word}}/meaning-in-english">{{wordNode.word}}</a></div>
                     </div>
                 </div>
             </div>
@@ -83,7 +83,7 @@
             <div class="span12" ng-show="phrase.show"><b>Phrase</b>
                 <div class="span12">
                     <div ng-repeat="wordNode in dictionary.targetWord">
-                        <div class="span3" ng-if="wordNode.partOfSpeech == 'phrase'" ng-init="phrase.show=true;target.show=true"><a ng-href="#/hindi-word/{{wordNode.word}}/meaning-in-english">{{wordNode.word}}</a></div>
+                        <div class="span3" ng-if="wordNode.partOfSpeech == 'phrase'" ng-init="phrase.show=true;target.show=true"><a ng-href="/hindi-word/{{wordNode.word}}/meaning-in-english">{{wordNode.word}}</a></div>
                     </div>
                 </div>
             </div>
@@ -91,7 +91,7 @@
             <div class="span12" ng-show="abbreviation.show"><b>Abbreviation</b>
                 <div class="span12">
                     <div ng-repeat="wordNode in dictionary.targetWord">
-                        <div class="span3" ng-if="wordNode.partOfSpeech == 'abbreviation'" ng-init="abbreviation.show=true;target.show=true"><a ng-href="#/hindi-word/{{wordNode.word}}/meaning-in-english">{{wordNode.word}}</a></div>
+                        <div class="span3" ng-if="wordNode.partOfSpeech == 'abbreviation'" ng-init="abbreviation.show=true;target.show=true"><a ng-href="/hindi-word/{{wordNode.word}}/meaning-in-english">{{wordNode.word}}</a></div>
                     </div>
                 </div>
             </div>
@@ -99,7 +99,7 @@
             <div class="span12" ng-show="article.show"><b>Article</b>
                 <div class="span12">
                     <div ng-repeat="wordNode in dictionary.targetWord">
-                        <div class="span3" ng-if="wordNode.partOfSpeech == 'article'" ng-init="article.show=true;target.show=true"><a ng-href="#/hindi-word/{{wordNode.word}}/meaning-in-english">{{wordNode.word}}</a></div>
+                        <div class="span3" ng-if="wordNode.partOfSpeech == 'article'" ng-init="article.show=true;target.show=true"><a ng-href="/hindi-word/{{wordNode.word}}/meaning-in-english">{{wordNode.word}}</a></div>
                     </div>
                 </div>
             </div>
@@ -107,7 +107,7 @@
             <div class="span12" ng-show="auxiliaryVerb.show"><b>Auxiliary Verb</b>
                 <div class="span12">
                     <div ng-repeat="wordNode in dictionary.targetWord">
-                        <div class="span3" ng-if="wordNode.partOfSpeech == 'auxiliaryVerb'" ng-init="auxiliaryVerb.show=true;target.show=true"><a ng-href="#/hindi-word/{{wordNode.word}}/meaning-in-english">{{wordNode.word}}</a></div>
+                        <div class="span3" ng-if="wordNode.partOfSpeech == 'auxiliaryVerb'" ng-init="auxiliaryVerb.show=true;target.show=true"><a ng-href="/hindi-word/{{wordNode.word}}/meaning-in-english">{{wordNode.word}}</a></div>
                     </div>
                 </div>
             </div>
@@ -115,7 +115,7 @@
             <div class="span12" ng-show="particle.show"><b>Particle</b>
                 <div class="span12">
                     <div ng-repeat="wordNode in dictionary.targetWord">
-                        <div class="span3" ng-if="wordNode.partOfSpeech == 'particle'" ng-init="particle.show=true;target.show=true"><a ng-href="#/hindi-word/{{wordNode.word}}/meaning-in-english">{{wordNode.word}}</a></div>
+                        <div class="span3" ng-if="wordNode.partOfSpeech == 'particle'" ng-init="particle.show=true;target.show=true"><a ng-href="/hindi-word/{{wordNode.word}}/meaning-in-english">{{wordNode.word}}</a></div>
                     </div>
                 </div>
             </div>
@@ -123,7 +123,7 @@
             <div class="span12" ng-show="prefix.show"><b>Prefix</b>
                 <div class="span12">
                     <div ng-repeat="wordNode in dictionary.targetWord">
-                        <div class="span3" ng-if="wordNode.partOfSpeech == 'prefix'" ng-init="prefix.show=true;target.show=true"><a ng-href="#/hindi-word/{{wordNode.word}}/meaning-in-english">{{wordNode.word}}</a></div>
+                        <div class="span3" ng-if="wordNode.partOfSpeech == 'prefix'" ng-init="prefix.show=true;target.show=true"><a ng-href="/hindi-word/{{wordNode.word}}/meaning-in-english">{{wordNode.word}}</a></div>
                     </div>
                 </div>
             </div>
@@ -131,7 +131,7 @@
             <div class="span12" ng-show="other.show"><b>Other</b>
                 <div class="span12">
                     <div ng-repeat="wordNode in dictionary.targetWord" >
-                        <div class="span3" ng-if="wordNode.partOfSpeech == '' || wordNode.partOfSpeech == 'text'" ng-init="other.show=true;target.show=true"><a ng-href="#/hindi-word/{{wordNode.word}}/meaning-in-english">{{wordNode.word}}</a></div>
+                        <div class="span3" ng-if="wordNode.partOfSpeech == '' || wordNode.partOfSpeech == 'text'" ng-init="other.show=true;target.show=true"><a ng-href="/hindi-word/{{wordNode.word}}/meaning-in-english">{{wordNode.word}}</a></div>
                     </div>
                 </div>
             </div>
@@ -144,7 +144,7 @@
                 <div class="span12">
                     <div ng-repeat="synonym in synonyms">
                         <div class="span6">
-                        <div class="span12"><a ng-href="#/english-word/{{synonym.word}}/meaning-in-hindi">{{synonym.word}}</a>&nbsp;(<a ng-href="#/hindi-word/{{synonym.tWord}}/meaning-in-english">{{synonym.tWord}}</a>)</div>
+                        <div class="span12"><a ng-href="/english-word/{{synonym.word}}/meaning-in-hindi">{{synonym.word}}</a>&nbsp;(<a ng-href="/hindi-word/{{synonym.tWord}}/meaning-in-english">{{synonym.tWord}}</a>)</div>
                         <div class="span12" ng-repeat="exmple in synonym.exmples">
                             <div class="span12">-&nbsp;{{exmple | capitalize}}.</div>
                         </div>
@@ -159,7 +159,7 @@
             <div class="span12">
                 <div ng-repeat="synonyms in dictionary.synonym">
                     <div ng-repeat="synonym in synonyms">
-                        <div class="span4" ng-init="synonym.show=true"><a ng-href="#/english-word/{{synonym.word}}/meaning-in-hindi">{{synonym.word}}</a>&nbsp;(<a ng-href="#/hindi-word/{{synonym.tWord}}/meaning-in-english">{{synonym.tWord}}</a>)</div>
+                        <div class="span4" ng-init="synonym.show=true"><a ng-href="/english-word/{{synonym.word}}/meaning-in-hindi">{{synonym.word}}</a>&nbsp;(<a ng-href="/hindi-word/{{synonym.tWord}}/meaning-in-english">{{synonym.tWord}}</a>)</div>
                     </div>
                 </div>
             </div>
@@ -170,7 +170,7 @@
                 <div class="span12" ng-init="otherMeaning.show=true"><h4>{{key | capitalize}}</h4></div>
                 <div class="span12">
                     <div ng-repeat="wordNode in value">
-                        <div class="span4"><a ng-href="#/english-word/{{wordNode.word}}/meaning-in-hindi">{{wordNode.word}}</a>&nbsp;(<a ng-href="#/hindi-word/{{wordNode.tWord}}/meaning-in-english">{{wordNode.tWord}}</a>)</div>
+                        <div class="span4"><a ng-href="/english-word/{{wordNode.word}}/meaning-in-hindi">{{wordNode.word}}</a>&nbsp;(<a ng-href="/hindi-word/{{wordNode.tWord}}/meaning-in-english">{{wordNode.tWord}}</a>)</div>
                     </div>
                 </div>
             </div>

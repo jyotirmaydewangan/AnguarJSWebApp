@@ -9,6 +9,17 @@
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
 
+    <filter>
+        <filter-name>UrlRewriteFilter</filter-name>
+        <filter-class>org.tuckey.web.filters.urlrewrite.UrlRewriteFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>UrlRewriteFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+    </filter-mapping>
+
     <!-- Configure a proxy to the back-end services -->
     <servlet>
         <servlet-name>proxy</servlet-name>
@@ -30,5 +41,4 @@
         <servlet-name>proxy</servlet-name>
         <url-pattern>/api/*</url-pattern>
     </servlet-mapping>
-
 </web-app>
