@@ -8,25 +8,27 @@ var sidebarMenu = angular.module('sidebarMenu', ['ngRoute'])
             .when('/dictionary/english-to-urdu', {templateUrl : '/partials/englishToUrdu.html', controller:'DictionaryCtrl'})
             .when('/dictionary/english-to-telugu', {templateUrl : '/partials/englishToTelugu.html', controller:'DictionaryCtrl'})
             .when('/dictionary/english-to-bengali', {templateUrl : '/partials/englishToBengali.html', controller:'DictionaryCtrl'})
+            .when('/dictionary/english-to-marathi', {templateUrl : '/partials/englishToMarathi.html', controller:'DictionaryCtrl'})
 
 
             .when('/dictionary/hindi-to-english', {templateUrl : '/partials/hindiToEnglish.html', controller:'DictionaryCtrl'})
             .when('/dictionary/urdu-to-english', {templateUrl : '/partials/urduToEnglish.html', controller:'DictionaryCtrl'})
             .when('/dictionary/telugu-to-english', {templateUrl : '/partials/teluguToEnglish.html', controller:'DictionaryCtrl'})
             .when('/dictionary/bengali-to-english', {templateUrl : '/partials/bengaliToEnglish.html', controller:'DictionaryCtrl'})
-
+            .when('/dictionary/marathi-to-english', {templateUrl : '/partials/marathiToEnglish.html', controller:'DictionaryCtrl'})
 
             .when('/english-word/:word/meaning-in-hindi', {templateUrl : '/partials/englishToHindi.html', controller:'DictionaryCtrl'})
             .when('/english-word/:word/meaning-in-urdu', {templateUrl : '/partials/englishToUrdu.html', controller:'DictionaryCtrl'})
             .when('/english-word/:word/meaning-in-telugu', {templateUrl : '/partials/englishToTelugu.html', controller:'DictionaryCtrl'})
             .when('/english-word/:word/meaning-in-bengali', {templateUrl : '/partials/englishToBengali.html', controller:'DictionaryCtrl'})
+            .when('/english-word/:word/meaning-in-marathi', {templateUrl : '/partials/englishToMarathi.html', controller:'DictionaryCtrl'})
 
 
             .when('/hindi-word/:word/meaning-in-english', {templateUrl : '/partials/hindiToEnglish.html', controller:'DictionaryCtrl'})
             .when('/urdu-word/:word/meaning-in-english', {templateUrl : '/partials/urduToEnglish.html', controller:'DictionaryCtrl'})
             .when('/telugu-word/:word/meaning-in-english', {templateUrl : '/partials/teluguToEnglish.html', controller:'DictionaryCtrl'})
             .when('/bengali-word/:word/meaning-in-english', {templateUrl : '/partials/bengaliToEnglish.html', controller:'DictionaryCtrl'})
-
+            .when('/marathi-word/:word/meaning-in-english', {templateUrl : '/partials/marathiToEnglish.html', controller:'DictionaryCtrl'})
 
             .otherwise({redirectTo: '/'});
         $locationProvider.hashPrefix("!")
@@ -82,6 +84,11 @@ sidebarMenu.factory('Menu', function () {
             class: "",
             href: "/#!/dictionary/english-to-bengali",
             name: "English to Bengali"
+        },
+        {
+            class: "",
+            href: "/#!/dictionary/english-to-marathi",
+            name: "English to Marathi"
         }
     ];
     return Menu;
