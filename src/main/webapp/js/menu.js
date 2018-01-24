@@ -31,7 +31,7 @@ var sidebarMenu = angular.module('sidebarMenu', ['ngRoute'])
             .when('/marathi-word/:word/meaning-in-english', {templateUrl : '/partials/marathiToEnglish.html', controller:'DictionaryCtrl'})
 
             .otherwise({redirectTo: '/'});
-        $locationProvider.hashPrefix("!")
+        $locationProvider.hashPrefix("!");
     });
 
 sidebarMenu.controller("MenuCtrl", function ($scope, $location, Menu) {

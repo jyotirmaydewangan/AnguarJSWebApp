@@ -27,7 +27,13 @@ dictionaryApp.controller("headerCtrl", function($scope, ControllerSharingData) {
     $scope.HeaderData = ControllerSharingData;
 });
 
-dictionaryApp.controller("DictionaryCtrl", function($scope, $location,$routeParams, DictionaryResource, ReverseDictionaryResource, ControllerSharingData) {
+dictionaryApp.controller("DictionaryCtrl", function($scope, $rootScope, $location, $window, $routeParams, DictionaryResource, ReverseDictionaryResource, ControllerSharingData) {
+
+    $rootScope.$on('$routeChangeSuccess',function () {
+        if (!$window.ga)return;
+        $window.ga('set', 'page', $location.path());
+        $window.ga('send', 'pageview');
+    });
 
     $scope.DictionaryForm = {
         show: true,
@@ -121,6 +127,7 @@ dictionaryApp.controller("DictionaryCtrl", function($scope, $location,$routePara
 
             $scope.HeaderData.source = 'english';
             $scope.HeaderData.target = word.lang;
+
 
             if(word.word != undefined && $location.path().indexOf('/'+ word.word + '/') === -1) {
                 $location.url("/english-word/" + word.word + "/meaning-in-" + word.lang);
