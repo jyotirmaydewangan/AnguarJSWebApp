@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<html>
+
+<html ng-app="dictionaryApp" ng-controller="titleCtrl">
 
 <head>
     <!-- Google Analytics -->
@@ -17,17 +18,16 @@
     <!--link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet"-->
     <link rel="stylesheet" href="css/bootstrap-combined.min.css" >
     <link rel="stylesheet" href="css/foundation.min.css">
-    <link rel="stylesheet" href="css/header.footer.css">
-    <link rel="stylesheet" href="css/raffler.css">
+    <link rel="stylesheet" href="css/header-footer.css">
     <base href="/" />
+    <title>{{Page.title() | capitalize}}</title>
 </head>
 <body>
-
-<div class="row-fluid wrapper" ng-app="dictionaryApp">
-    <div class="header" ng-controller="headerCtrl">
+<div class="row-fluid wrapper">
+    <div class="header" ng-controller="HeaderCtrl">
         <div>
             <h2 style="color: white !important;">&nbsp;&nbsp;
-                {{HeaderData.source | capitalize}} to {{HeaderData.target | capitalize}} Dictionary
+                {{HeaderData.finalHeader | capitalize}}
             </h2>
         </div>
     </div>
@@ -45,7 +45,18 @@
         <div class="span2">
         </div>
     </div>
-    <div class="footer"></div>
+    <div class="footer">
+        <div>
+            <a style="color: white !important;" href="/#!/">Home</a> |
+            <a style="color: white !important;" href="/#!/browse">Browse</a>
+            <p>&#169;&nbsp;<script>document.write(new Date().getFullYear())</script>
+                <a style="color: white !important;" href="/#!/">xyz.com</a> |
+                <a style="color: white !important;" href="/#!/about" rel="nofollow">About</a> |
+                <a style="color: white !important;" href="/#!/terms" rel="nofollow">Terms of Use</a> |
+                <a style="color: white !important;" href="/#!/privacy" rel="nofollow">Privacy Policy</a>
+            </p>
+        </div>
+    </div>
 </div>
 
 <!-- AngularJS and Boostrap JS files -->

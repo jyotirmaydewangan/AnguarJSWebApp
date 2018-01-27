@@ -3,7 +3,14 @@ var sidebarMenu = angular.module('sidebarMenu', ['ngRoute'])
         // browser reload doesn't work when html5 mode is turned on..
         //$locationProvider.html5Mode(true);
         $routeProvider
-            .when('/', {templateUrl: '/partials/englishToHindi.html', controller:'DictionaryCtrl'})
+            .when('/', {templateUrl: '/partials/home.html', controller:'DictionaryCtrl'})
+            .when('/browse', {templateUrl: '/partials/browse.html', controller:'BrowseController'})
+            .when('/about', {templateUrl: '/partials/about.html', controller:'DictionaryCtrl'})
+            .when('/terms', {templateUrl: '/partials/terms.html', controller:'DictionaryCtrl'})
+            .when('/privacy', {templateUrl: '/partials/privacy.html', controller:'DictionaryCtrl'})
+
+            .when('/browse/:char/:lang/:page', {templateUrl: '/partials/browseLanguage.html', controller:'BrowseController'})
+
             .when('/dictionary/english-to-hindi', {templateUrl : '/partials/englishToHindi.html', controller:'DictionaryCtrl'})
             .when('/dictionary/english-to-urdu', {templateUrl : '/partials/englishToUrdu.html', controller:'DictionaryCtrl'})
             .when('/dictionary/english-to-telugu', {templateUrl : '/partials/englishToTelugu.html', controller:'DictionaryCtrl'})
@@ -39,16 +46,18 @@ sidebarMenu.controller("MenuCtrl", function ($scope, $location, Menu) {
 
     /*
      See: http://stackoverflow.com/questions/12592472/how-to-highlight-a-current-menu-item-in-angularjs
-     */
+    */
     $scope.getClass = function (item) {
-        //console.log("location.path=" + $location.path())
-        //console.log("item.href=" + item.href)
+        //console.log("location.path=" + $location.path().split("-in-")[1])
+        //console.log("item.href=" + item.href.split("-to-")[1])
         //if ($location.path() == item.href) {
-        if ($location.path() == item.href) {
+       /* if ($location.path().split("-in-")[1] == item.href.split("-to-")[1]) {
             return "active"
         } else {
             return ""
-        }
+        } */
+
+        return ""
     }
 });
 
