@@ -42,6 +42,29 @@ dictionaryApp.controller("HeaderCtrl", function($scope, ControllerSharingData) {
     $scope.HeaderData = ControllerSharingData;
 });
 
+
+dictionaryApp.controller('DetailController', function($scope, $location, ControllerSharingData, Page) {
+
+    $scope.HeaderData = ControllerSharingData;
+
+    $scope.$watch('updateBrowse', function() {
+
+        if($location.path().substr(1) == "privacy") {
+            $scope.HeaderData.finalHeader = "";
+            Page.setTitle("privacy policy | xyz.com");
+        } else if($location.path().substr(1) == "terms") {
+            $scope.HeaderData.finalHeader = "";
+            Page.setTitle("terms of Use | xyz.com");
+        } else if($location.path().substr(1) == "about") {
+            $scope.HeaderData.finalHeader = "";
+            Page.setTitle("about us | xyz.com");
+        } else if($location.path().substr(1) == "home") {
+            $scope.HeaderData.finalHeader = "";
+            Page.setTitle("home");
+        }
+    });
+});
+
 dictionaryApp.controller('BrowseController', function($scope, $location, $routeParams, BrowseResource, ControllerSharingData, Page) {
 
     $scope.char = $routeParams.char;
@@ -85,7 +108,7 @@ dictionaryApp.controller('BrowseController', function($scope, $location, $routeP
 
 dictionaryApp.controller("DictionaryCtrl", function($scope, $rootScope, $location, $window, $routeParams, DictionaryResource, ReverseDictionaryResource, ControllerSharingData, Page) {
 
-    Page.setTitle('Default Title');
+    Page.setTitle($location.path().split("/")[2].replace(/-/g, ' ') + " meaning | xyz.com");
 
     $scope.DictionaryForm = {
         show: true,
@@ -160,8 +183,8 @@ dictionaryApp.controller("DictionaryCtrl", function($scope, $rootScope, $locatio
     });
 
     $scope.searchWord = function (word) {
-        if (word.word != undefined) {
 
+        if (word.word != undefined) {
             $scope.searchBoxWord = word.word;
             $scope.synonym.show = false;
             $scope.target.show = false;
@@ -203,6 +226,7 @@ dictionaryApp.controller("DictionaryCtrl", function($scope, $rootScope, $locatio
     }
 
     $scope.searchReverseWord = function (word) {
+
         if (word.word != undefined) {
 
             $scope.searchBoxWord = word.word;

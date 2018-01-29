@@ -3,11 +3,12 @@ var sidebarMenu = angular.module('sidebarMenu', ['ngRoute'])
         // browser reload doesn't work when html5 mode is turned on..
         //$locationProvider.html5Mode(true);
         $routeProvider
-            .when('/', {templateUrl: '/partials/home.html', controller:'DictionaryCtrl'})
             .when('/browse', {templateUrl: '/partials/browse.html', controller:'BrowseController'})
-            .when('/about', {templateUrl: '/partials/about.html', controller:'DictionaryCtrl'})
-            .when('/terms', {templateUrl: '/partials/terms.html', controller:'DictionaryCtrl'})
-            .when('/privacy', {templateUrl: '/partials/privacy.html', controller:'DictionaryCtrl'})
+            .when('/', {templateUrl: '/partials/home.html', controller:'DetailController'})
+            .when('/home', {templateUrl: '/partials/home.html', controller:'DetailController'})
+            .when('/about', {templateUrl: '/partials/about.html', controller:'DetailController'})
+            .when('/terms', {templateUrl: '/partials/terms.html', controller:'DetailController'})
+            .when('/privacy', {templateUrl: '/partials/privacy.html', controller:'DetailController'})
 
             .when('/browse/:char/:lang/:page', {templateUrl: '/partials/browseLanguage.html', controller:'BrowseController'})
 
