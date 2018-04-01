@@ -1,57 +1,23 @@
-<div class="row-fluid">
-    <div class="span12" ng-controller="BrowseController">
-        <div class="span3">
-            <div class="span12"><h4 align="center">Alphabets</h4></div>
-            <div class="span12">
-                <div class="span2"><a ng-href="/#!/browse/a/{{lang}}/1">A</a></div>
-                <div class="span2"><a ng-href="/#!/browse/b/{{lang}}/1">B</a></div>
-                <div class="span2"><a ng-href="/#!/browse/c/{{lang}}/1">C</a></div>
-                <div class="span2"><a ng-href="/#!/browse/d/{{lang}}/1">D</a></div>
-                <div class="span2"><a ng-href="/#!/browse/e/{{lang}}/1">E</a></div>
-                <div class="span2"><a ng-href="/#!/browse/f/{{lang}}/1">F</a></div>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-controller="BrowseController">
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><h4 align="center">Alphabets</h4></div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div ng-repeat="char in letters">
+                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><a ng-href="/#!/browse/{{char}}/{{source}}/{{target}}/1">{{char}}</a></div>
+                </div>
             </div>
-            <div class="span12">
-                <div class="span2"><a ng-href="/#!/browse/g/{{lang}}/1">G</a></div>
-                <div class="span2"><a ng-href="/#!/browse/h/{{lang}}/1">H</a></div>
-                <div class="span2"><a ng-href="/#!/browse/i/{{lang}}/1">I</a></div>
-                <div class="span2"><a ng-href="/#!/browse/j/{{lang}}/1">J</a></div>
-                <div class="span2"><a ng-href="/#!/browse/k/{{lang}}/1">K</a></div>
-                <div class="span2"><a ng-href="/#!/browse/l/{{lang}}/1">L</a></div>
-            </div>
-            <div class="span12">
-                <div class="span2"><a ng-href="/#!/browse/m/{{lang}}/1">M</a></div>
-                <div class="span2"><a ng-href="/#!/browse/n/{{lang}}/1">N</a></div>
-                <div class="span2"><a ng-href="/#!/browse/o/{{lang}}/1">O</a></div>
-                <div class="span2"><a ng-href="/#!/browse/p/{{lang}}/1">P</a></div>
-                <div class="span2"><a ng-href="/#!/browse/q/{{lang}}/1">Q</a></div>
-                <div class="span2"><a ng-href="/#!/browse/r/{{lang}}/1">R</a></div>
-            </div>
-            <div class="span12">
-                <div class="span2"><a ng-href="/#!/browse/s/{{lang}}/1">S</a></div>
-                <div class="span2"><a ng-href="/#!/browse/t/{{lang}}/1">T</a></div>
-                <div class="span2"><a ng-href="/#!/browse/u/{{lang}}/1">U</a></div>
-                <div class="span2"><a ng-href="/#!/browse/v/{{lang}}/1">V</a></div>
-                <div class="span2"><a ng-href="/#!/browse/w/{{lang}}/1">W</a></div>
-                <div class="span2"><a ng-href="/#!/browse/x/{{lang}}/1">X</a></div>
-            </div>
-            <div class="span12">
-                <div class="span2"><a ng-href="/#!/browse/y/{{lang}}/1">Y</a></div>
-                <div class="span2"><a ng-href="/#!/browse/z/{{lang}}/1">Z</a></div>
-            </div>
-
-            <div class="span12"><h4 align="center">Pages</h4></div>
-            <div class="span12">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><h4 align="center">Pages</h4></div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div ng-repeat="n in range(1,pageCount)">
-                    <div class="span2"><a ng-href="/#!/browse/{{char}}/{{lang}}/{{n}}">{{n}}</a></div>
+                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><a ng-href="/#!/browse/{{char}}/{{source}}/{{target}}/{{n}}">{{n}}</a></div>
                 </div>
             </div>
 
         </div>
-        <div class="span9">
-            <div class="span12"><h4>Words</h4></div>
+        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><h4>Words</h4></div>
             <div ng-repeat="word in filteredWords">
-                <div class="span3"><a ng-href="/#!/english-word/{{word}}/meaning-in-{{lang}}">{{word}}</a></div>
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"><a ng-href="/#!/{{source}}-word/{{word}}/meaning-in-{{target}}">{{word}}</a></div>
             </div>
         </div>
-    </div>
 </div>

@@ -10,7 +10,7 @@ var sidebarMenu = angular.module('sidebarMenu', ['ngRoute'])
             .when('/terms', {templateUrl: '/partials/terms.html', controller:'DetailController'})
             .when('/privacy', {templateUrl: '/partials/privacy.html', controller:'DetailController'})
 
-            .when('/browse/:char/:lang/:page', {templateUrl: '/partials/browseLanguage.html', controller:'BrowseController'})
+            .when('/browse/:char/:source/:target/:page', {templateUrl: '/partials/browseLanguage.html', controller:'BrowseController'})
 
             .when('/dictionary/english-to-hindi', {templateUrl : '/partials/englishToHindi.html', controller:'DictionaryCtrl'})
             .when('/dictionary/english-to-urdu', {templateUrl : '/partials/englishToUrdu.html', controller:'DictionaryCtrl'})

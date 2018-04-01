@@ -1,0 +1,365 @@
+/* CSS Document */
+html, body {
+    height: 100%;
+}
+body{
+    background-image:url(../images/cream_pixels.fw.png);
+    background-repeat:repeat;
+    margin-top:10px;
+}
+.wrapper {
+    max-width: 1126px;
+    background-color:#FFF;
+    width: 100%;
+    margin: 0 auto -20px;
+}
+
+img {
+    padding:1px;
+    border:1px solid #D7D7D7;
+    background-color:#FFF;
+    margin: 5px 15px 5px 50px;
+}
+
+/* --------------------------------------------- */
+form.example input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 75%;
+    height: 5%;
+    background: #f1f1f1;
+}
+
+form.example button {
+    float: left;
+    width: 25%;
+    height: 5%;
+    color: white;
+    font-size: 17px;
+    border: 0px solid grey;
+    border-left: none;
+    cursor: pointer;
+    background: white;
+}
+
+
+/* ------------------ header ------------------- */
+
+#header_top{
+    width: 100%;
+    background-repeat:repeat-x;
+    height:12px;
+}
+#header{
+    width: 100%;
+    background-color:#00AEC3;
+    background-repeat:no-repeat;
+    height:80px;
+    margin-left:0 0 0 0;
+}
+
+#header_bottom{
+    width: 100%;
+    background-repeat:repeat-x;
+    height:15px;
+}
+
+/* ------------------ navigation ------------------- */
+
+#nav {
+    width: 100%;
+    background-color: #67a1cc;
+    height: 57px;
+    background-repeat: repeat;
+}
+
+#nav .wrap-nav{
+    height: 30px;
+    background: #333333;
+}
+
+#nav ul{
+    float:left;
+    list-style:none;
+    width:100%;
+}
+
+#nav ul li{
+    float:left;
+    list-style:none;
+    margin-right:80px;
+}
+
+#nav ul li a{
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 16px;
+    color: white;
+    display: block;
+    padding: 17px 10px;
+    margin-bottom: 1px;
+    z-index: 3;
+    position: relative;
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+/* ------------------ content ------------------- */
+
+h2{
+    font-size:16px;
+    font-family:Arial, Helvetica, sans-serif;
+    line-height:16px;
+}
+
+h3{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 110%;
+    font-weight: normal;
+    color: #008493;
+    text-shadow: 0 1px 1px #dadada;
+}
+
+p{
+    font-size:12px;
+    font-family:Arial, Helvetica, sans-serif;
+    text-align:left;
+    line-height:18px;
+    text-align:justify;
+
+}
+
+a{
+    color: #054bcc;
+}
+
+#content .wrap-content{ background: #ffffff;}
+
+.box1 {
+    margin:5px 7px;
+    padding:10px;
+
+}
+.box1 h2{text-align:center; }
+.box2 {
+    margin:0px 7px;
+    padding:10px;
+    text-align:left;
+}
+.box3 {
+    margin:5px 7px;
+    padding:10px;
+    text-align:left;
+}
+
+div.line {
+    border-top-width:1px;
+    border-top-style:dotted;
+    border-top-color:#D7D7D7;
+}
+
+
+
+/* -------------------- column and row ------------------- */
+
+
+.wraptext{margin:5px;}
+.text .co1umn1, .text .co1umn2{float:left; display: inline-block;}
+
+.text .wraptext{
+    margin: 16px;
+}
+
+
+
+/* ------------------ footer -------------------- */
+
+footer {
+    background-repeat: repeat-x;
+    text-align: center;
+}
+
+.wrap-footer{
+    background-repeat: repeat-x;
+}
+
+.ftr {
+    background: #67a1cc;
+    font-family:Arial, Helvetica, sans-serif;
+    padding:10px 0px;
+    color:#ffffff;
+}
+
+.ftr p{
+    font-size:12px;
+    font-family:Arial, Helvetica, sans-serif;
+    text-align:center;
+    line-height:30px;
+}
+
+.ftr a{
+    text-decoration:underline;
+    color: white; }
+
+
+
+
+/*----------	Tablet size    ---------*/
+
+@media only screen and (max-width: 768px) {
+
+    body{
+        margin-top:10px;
+    }
+
+    #header{
+        width: 100%;
+        background-color:#00AEC3;
+        background-repeat:no-repeat;
+        height:80px;
+        margin-left:0 0 0 0;
+        display:block;
+    }
+
+
+    #nav {
+        width: 100%;
+        background:#67a1cc;
+        position: relative;
+        border-bottom: 10px solid #67a1cc;
+    }
+
+    #nav ul{
+        float:left;
+        list-style:none;
+        width:100%;
+        display: block;
+        position:relative;
+    }
+
+    #nav ul li a{
+        text-decoration: none;
+        font-size: 12px;
+        line-height: 10px;
+        color: white;
+        display: block;
+        margin:0;
+        padding:5px;
+        list-style:none;
+        z-index: 1;
+        position:relative;
+        text-transform: uppercase;
+        font-family: Arial, Helvetica, sans-serif;
+        clear: left;
+    }
+
+    #header_bottom{
+        width: 100%;
+        background-repeat:repeat-x;
+        position:relative;
+        z-index:3;
+        display:block;
+    }
+
+    #content .wrap-content{
+        background: #ffffff;
+        display: block;
+        width: 100%;
+    }
+
+    .text .wraptext{
+        margin: 16px;
+    }
+
+    .box1 .box2 .box3 {
+        margin:0px 7px;
+        padding:5px;
+    }
+}
+
+
+
+/*----------	Iphone size    ---------*/
+
+@media only screen and (max-width: 320px) {
+
+    body{
+        margin-top:1px;
+    }
+
+    #header{
+        width: 100%;
+        background-color:#00AEC3;
+        background-repeat:no-repeat;
+        height:80px;
+        margin-left:0 0 0 0;
+        display:block;
+    }
+
+
+    #nav {
+        width: 100%;
+        background:#67a1cc;
+        height: auto;
+        position: relative;
+        border-bottom: 97px solid #67a1cc;
+    }
+
+    #nav .wrap-nav{
+        background:#67a1cc;
+        background-repeat: repeat-x;
+        display: block;
+        height: auto;
+    }
+
+    #nav ul{
+        float:left;
+        list-style:none;
+        height: auto;
+        width:100%;
+        display: block;
+        position:relative;
+    }
+
+    #nav ul li a{
+        text-decoration: none;
+        font-size: 12px;
+        line-height: 10px;
+        color: #000000;
+        display: block;
+        margin:0;
+        padding:5px;
+        list-style:none;
+        z-index: 3;
+        position:inherit;
+        text-transform: uppercase;
+        font-family: Arial, Helvetica, sans-serif;
+        clear: left;
+    }
+
+    .text .wraptext{
+        margin: 5px;
+    }
+
+    .box1 .box2 .box3  {
+        margin:0px 7px;
+        padding:5px;
+        display:block;
+    }
+
+    h3{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 100%;
+    }
+    img {
+        padding:1px;
+        border:1px solid #D7D7D7;
+        background-color:#FFF;
+        margin: 0px 0px 0px 0px;
+    }
+}
+

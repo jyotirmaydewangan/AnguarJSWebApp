@@ -12,7 +12,7 @@ dictionaryApp.factory('ReverseDictionaryResource', function ($resource) {
 });
 
 dictionaryApp.factory('BrowseResource', function ($resource) {
-    return $resource('/api/wordList/:char/:page', {}, {});
+    return $resource('/api/wordList/:lang/:char/:page', {}, {});
 });
 
 dictionaryApp.factory('Page', function(){
@@ -68,13 +68,14 @@ dictionaryApp.controller('DetailController', function($scope, $location, Control
 dictionaryApp.controller('BrowseController', function($scope, $location, $routeParams, BrowseResource, ControllerSharingData, Page) {
 
     $scope.char = $routeParams.char;
-    $scope.lang = $routeParams.lang;
+    $scope.source = $routeParams.source;
+    $scope.target = $routeParams.target;
     $scope.page = $routeParams.page;
 
     $scope.HeaderData = ControllerSharingData;
 
-    if($scope.lang != undefined) {
-        Page.setTitle("meaning in " + $scope.lang + " | xyz.com");
+    if($scope.target != undefined) {
+        Page.setTitle($scope.source + " to "+ $scope.target + " dictionary | xyz.com");
     } else {
         Page.setTitle("List of Dictionary | xyz.com");
     }
@@ -90,19 +91,20 @@ dictionaryApp.controller('BrowseController', function($scope, $location, $routeP
 
     $scope.$watch('updateBrowse', function() {
 
-        if($scope.lang != undefined) {
-            $scope.HeaderData.finalHeader = "Browse english to " + $scope.lang + " dictionary";
+        if($scope.target != undefined) {
+            $scope.HeaderData.finalHeader = $scope.source + " to " + $scope.target + " dictionary";
+            var paramForm  = {};
+            paramForm.char = $scope.char;
+            paramForm.page = $scope.page;
+            paramForm.lang = $scope.source;
+            BrowseResource.get(paramForm).$promise.then(function(result) {
+                $scope.filteredWords = result.wordList;
+                $scope.pageCount     = result.pageCount;
+                $scope.letters       = result.letters;
+            });
         } else {
-            $scope.HeaderData.finalHeader = "Browse dictionary";
+            //$scope.HeaderData.finalHeader = "Browse dictionary";
         }
-
-        var paramForm  = {};
-        paramForm.char = $scope.char;
-        paramForm.page = $scope.page;
-        BrowseResource.get(paramForm).$promise.then(function(result) {
-            $scope.filteredWords = result.wordList;
-            $scope.pageCount     = result.pageCount;
-        });
     });
 });
 
