@@ -28,8 +28,8 @@
 <body>
 <div class="wrapper">
     <div id="header" ng-controller="HeaderCtrl">
-        <div><h1 style="color: white !important;">Dictionary</h1></div>
-        <div> {{HeaderData.finalHeader | capitalize}} </div>
+        <div><h1 style="color: white; font-family: 'Rouge Script', cursive; font-weight: bolder; margin: 0 0 10px; text-align: center; text-shadow: 1px 1px 2px #082b34;">Dictionary</h1></div>
+        <div><h5 style="color: white; font-weight: bolder; text-align: center; text-shadow: 1px 1px 2px #082b34;">{{HeaderData.finalHeader | capitalize}} </h5></div>
     </div>
     <div id="nav">
         <ul>
@@ -37,8 +37,9 @@
             <li> <a href="/#!/about">About</a> </li>
         </ul>
     </div>
-    <div id="header_bottom"> </div>
+    <div id="header_bottom"></div>
     <div class="container" ng-view></div>
+    <div id="footer_top"></div>
     <footer>
         <div class="wrap-footer">
             <div class="ftr">

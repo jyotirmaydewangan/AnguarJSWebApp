@@ -54,13 +54,19 @@ form.example button {
 }
 #header{
     width: 100%;
-    background-color:#00AEC3;
+    background-color:#67a1cc;
     background-repeat:no-repeat;
     height:80px;
     margin-left:0 0 0 0;
 }
 
 #header_bottom{
+    width: 100%;
+    background-repeat:repeat-x;
+    height:15px;
+}
+
+#footer_top{
     width: 100%;
     background-repeat:repeat-x;
     height:15px;
@@ -218,7 +224,7 @@ footer {
 
     #header{
         width: 100%;
-        background-color:#00AEC3;
+        background-color:#67a1cc;
         background-repeat:no-repeat;
         height:80px;
         margin-left:0 0 0 0;
@@ -265,6 +271,14 @@ footer {
         display:block;
     }
 
+    #footer_top{
+        width: 100%;
+        background-repeat:repeat-x;
+        position:relative;
+        z-index:3;
+        display:block;
+    }
+
     #content .wrap-content{
         background: #ffffff;
         display: block;
@@ -293,7 +307,7 @@ footer {
 
     #header{
         width: 100%;
-        background-color:#00AEC3;
+        background-color:#67a1cc;
         background-repeat:no-repeat;
         height:80px;
         margin-left:0 0 0 0;
