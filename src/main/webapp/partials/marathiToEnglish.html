@@ -9,127 +9,20 @@
             </form>
         </div>
     </div>
+
+
     <div ng-show="target.show" ng-init="searchReverseWord(DictionaryForm.text)">
-        <div class="row"><h3>{{searchBoxWord | capitalize}} meaning in english</h3></div>
-
-        <div class="row" ng-show="noun.show"><b>Noun</b>
+        <div class="row"><h3>{{searchBoxWord | capitalize}} meaning in marathi</h3></div>
+        <div ng-repeat="(partOfSpeech, meanings) in dictionary.meaning">
+            <div class="row" ng-init="target.show=true"><b>{{partOfSpeech | capitalize}}</b></div>
             <div class="row">
-                <div ng-repeat="wordNode in dictionary.targetWord">
-                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" ng-if="wordNode.partOfSpeech == 'noun'" ng-init="noun.show=true; target.show=true"><a ng-href="/#!/english-word/{{wordNode.word}}/meaning-in-marathi">{{wordNode.word}}</a></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row" ng-show="verb.show"><b>Verb</b>
-            <div class="row">
-                <div ng-repeat="wordNode in dictionary.targetWord">
-                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" ng-if="wordNode.partOfSpeech == 'verb'" ng-init="verb.show=true;target.show=true"><a ng-href="/#!/english-word/{{wordNode.word}}/meaning-in-marathi">{{wordNode.word}}</a></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row" ng-show="adverb.show"><b>Adverb</b>
-            <div class="row">
-                <div ng-repeat="wordNode in dictionary.targetWord">
-                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" ng-if="wordNode.partOfSpeech == 'adverb'" ng-init="adverb.show=true;target.show=true"><a ng-href="/#!/english-word/{{wordNode.word}}/meaning-in-marathi">{{wordNode.word}}</a></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row" ng-show="adjective.show"><b>Adjective</b>
-            <div class="row">
-                <div ng-repeat="wordNode in dictionary.targetWord">
-                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" ng-if="wordNode.partOfSpeech == 'adjective'" ng-init="adjective.show=true;target.show=true"><a ng-href="/#!/english-word/{{wordNode.word}}/meaning-in-marathi">{{wordNode.word}}</a></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row" ng-show="preposition.show"><b>Preposition</b>
-            <div class="row">
-                <div ng-repeat="wordNode in dictionary.targetWord">
-                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" ng-if="wordNode.partOfSpeech == 'preposition'" ng-init="preposition.show=true;target.show=true"><a ng-href="/#!/english-word/{{wordNode.word}}/meaning-in-marathi">{{wordNode.word}}</a></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row" ng-show="conjunction.show"><b>Conjunction</b>
-            <div class="row">
-                <div ng-repeat="wordNode in dictionary.targetWord">
-                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" ng-if="wordNode.partOfSpeech == 'conjunction'" ng-init="conjunction.show=true;target.show=true"><a ng-href="/#!/english-word/{{wordNode.word}}/meaning-in-marathi">{{wordNode.word}}</a></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row" ng-show="pronoun.show"><b>Pronoun</b>
-            <div class="row">
-                <div ng-repeat="wordNode in dictionary.targetWord">
-                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" ng-if="wordNode.partOfSpeech == 'pronoun'" ng-init="pronoun.show=true;target.show=true"><a ng-href="/#!/english-word/{{wordNode.word}}/meaning-in-marathi">{{wordNode.word}}</a></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row" ng-show="interjection.show"><b>Interjection</b>
-            <div class="row">
-                <div ng-repeat="wordNode in dictionary.targetWord">
-                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" ng-if="wordNode.partOfSpeech == 'interjection'" ng-init="interjection.show=true;target.show=true"><a ng-href="/#!/english-word/{{wordNode.word}}/meaning-in-marathi">{{wordNode.word}}</a></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row" ng-show="phrase.show"><b>Phrase</b>
-            <div class="row">
-                <div ng-repeat="wordNode in dictionary.targetWord">
-                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" ng-if="wordNode.partOfSpeech == 'phrase'" ng-init="phrase.show=true;target.show=true"><a ng-href="/#!/english-word/{{wordNode.word}}/meaning-in-marathi">{{wordNode.word}}</a></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row" ng-show="abbreviation.show"><b>Abbreviation</b>
-            <div class="row">
-                <div ng-repeat="wordNode in dictionary.targetWord">
-                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" ng-if="wordNode.partOfSpeech == 'abbreviation'" ng-init="abbreviation.show=true;target.show=true"><a ng-href="/#!/english-word/{{wordNode.word}}/meaning-in-marathi">{{wordNode.word}}</a></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row" ng-show="article.show"><b>Article</b>
-            <div class="row">
-                <div ng-repeat="wordNode in dictionary.targetWord">
-                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" ng-if="wordNode.partOfSpeech == 'article'" ng-init="article.show=true;target.show=true"><a ng-href="/#!/english-word/{{wordNode.word}}/meaning-in-marathi">{{wordNode.word}}</a></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row" ng-show="auxiliaryVerb.show"><b>Auxiliary Verb</b>
-            <div class="row">
-                <div ng-repeat="wordNode in dictionary.targetWord">
-                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" ng-if="wordNode.partOfSpeech == 'auxiliaryVerb'" ng-init="auxiliaryVerb.show=true;target.show=true"><a ng-href="/#!/english-word/{{wordNode.word}}/meaning-in-marathi">{{wordNode.word}}</a></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row" ng-show="particle.show"><b>Particle</b>
-            <div class="row">
-                <div ng-repeat="wordNode in dictionary.targetWord">
-                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" ng-if="wordNode.partOfSpeech == 'particle'" ng-init="particle.show=true;target.show=true"><a ng-href="/#!/english-word/{{wordNode.word}}/meaning-in-marathi">{{wordNode.word}}</a></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row" ng-show="prefix.show"><b>Prefix</b>
-            <div class="row">
-                <div ng-repeat="wordNode in dictionary.targetWord">
-                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" ng-if="wordNode.partOfSpeech == 'prefix'" ng-init="prefix.show=true;target.show=true"><a ng-href="/#!/english-word/{{wordNode.word}}/meaning-in-marathi">{{wordNode.word}}</a></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row" ng-show="other.show"><b>Other</b>
-            <div class="row">
-                <div ng-repeat="wordNode in dictionary.targetWord" >
-                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" ng-if="wordNode.partOfSpeech == '' || wordNode.partOfSpeech == 'text'" ng-init="other.show=true;target.show=true"><a ng-href="/#!/english-word/{{wordNode.word}}/meaning-in-marathi">{{wordNode.word}}</a></div>
+                <div ng-repeat='meaning in meanings'>
+                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                        <a ng-href="/#!/english-word/{{meaning}}/meaning-in-marathi">{{meaning}}</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
 </div>

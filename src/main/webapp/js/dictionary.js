@@ -122,61 +122,23 @@ dictionaryApp.controller("DictionaryCtrl", function($scope, $rootScope, $locatio
     $scope.HeaderData = ControllerSharingData;
 
     $scope.searchBoxWord = '';
-    $scope.noun = {
-        show: false
-    }
-    $scope.verb = {
-        show: false
-    }
-    $scope.adverb = {
-        show: false
-    }
-    $scope.adjective = {
-        show: false
-    }
-    $scope.preposition = {
-        show: false
-    }
-    $scope.conjunction = {
-        show: false
-    }
-    $scope.pronoun = {
-        show: false
-    }
-    $scope.interjection = {
-        show: false
-    }
-    $scope.phrase = {
-        show: false
-    }
-    $scope.abbreviation = {
-        show: false
-    }
-    $scope.article = {
-        show: false
-    }
-    $scope.auxiliaryVerb = {
-        show: false
-    }
-    $scope.particle = {
-        show: false
-    }
-    $scope.prefix = {
-        show: false
-    }
-    $scope.other = {
-        show: false
-    }
+
     $scope.target = {
+        show: false
+    }
+    $scope.definition = {
+        show: false
+    }
+    $scope.example = {
         show: false
     }
     $scope.synonym = {
         show: false
     }
-    $scope.otherMeaning = {
+    $scope.antonym = {
         show: false
     }
-    $scope.example = {
+    $scope.seeAlso = {
         show: false
     }
 
@@ -188,24 +150,13 @@ dictionaryApp.controller("DictionaryCtrl", function($scope, $rootScope, $locatio
 
         if (word.word != undefined) {
             $scope.searchBoxWord = word.word;
-            $scope.synonym.show = false;
+
             $scope.target.show = false;
-            $scope.noun.show = false;
-            $scope.verb.show = false;
-            $scope.adverb.show = false;
-            $scope.adjective.show = false;
-            $scope.other.show = false;
+            $scope.definition.show = false;
             $scope.example.show = false;
-            $scope.preposition.show = false;
-            $scope.conjunction.show = false;
-            $scope.pronoun.show = false;
-            $scope.interjection.show = false;
-            $scope.phrase.show = false;
-            $scope.abbreviation.show = false;
-            $scope.article.show = false;
-            $scope.auxiliaryVerb.show = false;
-            $scope.particle.show = false;
-            $scope.prefix.show = false;
+            $scope.synonym.show = false;
+            $scope.antonym.show = false;
+            $scope.seeAlso.show = false;
 
             $scope.HeaderData.source = 'english';
             $scope.HeaderData.target = word.lang;
@@ -230,26 +181,14 @@ dictionaryApp.controller("DictionaryCtrl", function($scope, $rootScope, $locatio
     $scope.searchReverseWord = function (word) {
 
         if (word.word != undefined) {
-
             $scope.searchBoxWord = word.word;
-            $scope.synonym.show = false;
+
             $scope.target.show = false;
-            $scope.noun.show = false;
-            $scope.verb.show = false;
-            $scope.adverb.show = false;
-            $scope.adjective.show = false;
-            $scope.other.show = false;
+            $scope.definition.show = false;
             $scope.example.show = false;
-            $scope.preposition.show = false;
-            $scope.conjunction.show = false;
-            $scope.pronoun.show = false;
-            $scope.interjection.show = false;
-            $scope.phrase.show = false;
-            $scope.abbreviation.show = false;
-            $scope.article.show = false;
-            $scope.auxiliaryVerb.show = false;
-            $scope.particle.show = false;
-            $scope.prefix.show = false;
+            $scope.synonym.show = false;
+            $scope.antonym.show = false;
+            $scope.seeAlso.show = false;
 
             $scope.HeaderData.source = word.lang;
             $scope.HeaderData.target = 'english';
