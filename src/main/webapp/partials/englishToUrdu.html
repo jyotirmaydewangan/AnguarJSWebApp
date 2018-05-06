@@ -1,7 +1,7 @@
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-controller="DictionaryCtrl">
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-show="DictionaryForm.show">
-        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6"></div>
-        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    <div class="row" ng-show="DictionaryForm.show">
+        <div class="col-md-6 col-lg-6"></div>
+        <div class="col-md-6 col-lg-6">
             <form class="example" ng-submit="searchWord(DictionaryForm.text)">
                 <input type="text" placeholder="Search Word ..." ng-model="DictionaryForm.text.word">
                 <input type="text" ng-show="false" ng-model="DictionaryForm.text.lang" ng-init="DictionaryForm.text.lang ='urdu'; HeaderData.source = 'english'; HeaderData.target = 'urdu'">
