@@ -28,16 +28,29 @@ form.example input[type=text] {
     border: 1px solid grey;
     float: left;
     width: 75%;
-    height: 5%;
+    height: 36px;
     background: #f1f1f1;
+}
+
+form.example ul {
+    position: absolute;
+    width: 71%;
+    cursor:pointer;
+    top:36px;
+    background-color: #f1f1f1;
+    z-index: 3;
+}
+
+form.example li:hover{
+    background-color: #f1f1f1;
 }
 
 form.example button {
     float: left;
-    width: 25%;
-    height: 5%;
+    width: 20%;
+    height: 35px;
     color: white;
-    font-size: 17px;
+    font-size: 10px;
     border: 0px solid grey;
     border-left: none;
     cursor: pointer;
@@ -376,4 +389,8 @@ footer {
         margin: 0px 0px 0px 0px;
     }
 }
+
+.underline {
+    border-width: 0px;}
+
 

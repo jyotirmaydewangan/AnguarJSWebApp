@@ -23,6 +23,20 @@ dictionaryApp.factory('Page', function(){
     };
 });
 
+
+dictionaryApp.factory('AutocompleteResource', function ($resource) {
+    return $resource('/api/wordList/:lang/:word', {}, {
+        query: {
+            isArray: true,
+            method: 'GET',
+            transformResponse: function (data) {
+                return JSON.parse(data);
+            }
+        }
+    });
+});
+
+
 dictionaryApp.controller("titleCtrl", function($scope, Page) {
     $scope.Page = Page;
 });
@@ -33,6 +47,14 @@ dictionaryApp.filter('capitalize', function() {
         return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
     }
 });
+
+
+dictionaryApp.filter('highlight', function($sce) {
+    return function(text, phrase) {
+        if (phrase) text = text.replace(new RegExp('('+phrase+')', 'gi'), '<b>$1</b>')
+
+        return $sce.trustAsHtml(text)
+    }});
 
 dictionaryApp.factory('ControllerSharingData', function(){
     return { source: '', target: '', finalHeader: ''};
@@ -108,7 +130,7 @@ dictionaryApp.controller('BrowseController', function($scope, $location, $routeP
     });
 });
 
-dictionaryApp.controller("DictionaryCtrl", function($scope, $rootScope, $location, $window, $routeParams, DictionaryResource, ReverseDictionaryResource, ControllerSharingData, Page) {
+dictionaryApp.controller("DictionaryCtrl", function($scope, $http, $rootScope, $location, $window, $routeParams,DictionaryResource, ReverseDictionaryResource, AutocompleteResource, ControllerSharingData, Page) {
 
     Page.setTitle($location.path().split("/")[2].replace(/-/g, ' ') + " meaning | xyz.com");
 
@@ -209,4 +231,30 @@ dictionaryApp.controller("DictionaryCtrl", function($scope, $rootScope, $locatio
             }
         }
     }
+
+
+    $scope.complete = function (word, lang) {
+        var output = [];
+        $scope.hideAutoCompleteList = false;
+
+        var paramForm = {};
+        paramForm.lang = lang;
+        paramForm.word = word;
+
+        AutocompleteResource.query(paramForm, function (response) {
+            angular.forEach(response, function (item) {
+                if (item) {
+                    output.push(item.word);
+                }
+            });
+        });
+
+        $scope.filterWords = output;
+    }
+    
+    $scope.fillTextBox = function (string) {
+        $scope.DictionaryForm.text.word = string;
+        $scope.hideAutoCompleteList = true;
+    }
+
 });

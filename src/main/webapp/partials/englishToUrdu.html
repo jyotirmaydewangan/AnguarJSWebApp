@@ -3,7 +3,16 @@
         <div class="col-md-6 col-lg-6"></div>
         <div class="col-md-6 col-lg-6">
             <form class="example" ng-submit="searchWord(DictionaryForm.text)">
-                <input type="text" placeholder="Search Word ..." ng-model="DictionaryForm.text.word">
+                <input type="text" placeholder="Search Word ..." ng-model="DictionaryForm.text.word" ng-keyup="complete(DictionaryForm.text.word, DictionaryForm.text.lang)" class="form-control">
+
+                <ul class="list-group" ng-model="hideAutoCompleteList" ng-hide="hideAutoCompleteList">
+                    <li class="list-group-item"
+                        ng-repeat="countryData in filterWords"
+                        ng-click="fillTextBox(countryData)">
+                        <a ng-href="/#!/english-word/{{countryData}}/meaning-in-urdu">
+                            <div ng-bind-html="countryData | highlight:DictionaryForm.text.word"></div>
+                    </li>
+                </ul>
                 <input type="text" ng-show="false" ng-model="DictionaryForm.text.lang" ng-init="DictionaryForm.text.lang ='urdu'; HeaderData.source = 'english'; HeaderData.target = 'urdu'">
                 <button type="submit"><i class="btn btn-primary">Search</i></button>
             </form>
@@ -16,7 +25,7 @@
             <div class="row" ng-init="target.show=true"><b>{{partOfSpeech | capitalize}}</b></div>
             <div class="row">
                 <div ng-repeat='meaning in meanings'>
-                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                    <div class="col-xs-4 col-sm-4 col-md-3 col-lg-3">
                         <a ng-href="/#!/urdu-word/{{meaning}}/meaning-in-english">{{meaning}}</a>
                     </div>
                 </div>
@@ -58,7 +67,7 @@
             <div class="row"><b>{{partOfSpeech | capitalize}}</b></div>
             <div class="row">
                 <div ng-repeat='similarWord in similarWords track by $index'>
-                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" ng-init="synonym.show=true">
+                    <div class="col-xs-4 col-sm-4 col-md-3 col-lg-3" ng-init="synonym.show=true">
                         <a ng-href="/#!/english-word/{{similarWord}}/meaning-in-urdu">{{similarWord}}</a>
                     </div>
                 </div>
@@ -70,7 +79,7 @@
         <div class="row"><h3>Antonym of {{searchBoxWord | capitalize}}</h3></div>
         <div class="row">
             <div ng-repeat="antonyms in dictionary.antonym track by $index">
-                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" ng-init="antonym.show=true">
+                <div class="col-xs-4 col-sm-4 col-md-3 col-lg-3" ng-init="antonym.show=true">
                     <a ng-href="/#!/english-word/{{antonyms}}/meaning-in-urdu">{{antonyms}}</a>
                 </div>
             </div>
@@ -81,7 +90,7 @@
         <div class="row"><h3>See Also</h3></div>
         <div class="row">
             <div ng-repeat="same in dictionary.seeAlso track by $index">
-                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" ng-init="seeAlso.show=true">
+                <div class="col-xs-4 col-sm-4 col-md-3 col-lg-3" ng-init="seeAlso.show=true">
                     <a ng-href="/#!/english-word/{{same}}/meaning-in-urdu">{{same}}</a>
                 </div>
             </div>
