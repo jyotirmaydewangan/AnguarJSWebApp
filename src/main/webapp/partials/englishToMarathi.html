@@ -3,7 +3,7 @@
         <div class="col-md-6 col-lg-6"></div>
         <div class="col-md-6 col-lg-6">
             <form class="example" ng-submit="searchWord(DictionaryForm.text)">
-                <input type="text" placeholder="Search Word ..." ng-model="DictionaryForm.text.word" ng-keyup="complete(DictionaryForm.text.word, DictionaryForm.text.lang)" class="form-control">
+                <input type="text" placeholder="Search Word ..." ng-model="DictionaryForm.text.word" ng-keyup="complete(DictionaryForm.text.word, 'english')" class="form-control">
 
                 <ul class="list-group" ng-model="hideAutoCompleteList" ng-hide="hideAutoCompleteList">
                     <li class="list-group-item"
@@ -22,12 +22,23 @@
 
     <div ng-show="target.show" ng-init="searchWord(DictionaryForm.text)">
         <div class="row"><h3>{{searchBoxWord | capitalize}} meaning in marathi</h3></div>
+        <div class="row">
+            <label class="switch">
+                <input type="checkbox" ng-model="showTransl">
+                <span class="slider round"></span>
+                <span style="padding-left:40px">Transliteration</span>
+            </label>
+        </div>
         <div ng-repeat="(partOfSpeech, meanings) in dictionary.meaning">
             <div class="row" ng-init="target.show=true"><b>{{partOfSpeech | capitalize}}</b></div>
             <div class="row">
                 <div ng-repeat='meaning in meanings'>
                     <div class="col-xs-4 col-sm-4 col-md-3 col-lg-3">
-                        <a ng-href="/#!/marathi-word/{{meaning}}/meaning-in-english">{{meaning}}</a>
+                        <div>
+                            <a ng-click="sayIt('{{meaning}}', 'hi-IN')"><span class="glyphicon glyphicon-volume-up"></span></a>
+                            <a ng-href="/#!/marathi-word/{{meaning}}/meaning-in-english">{{meaning}}</a>
+                            <a ng-show="showTransl" ng-click="sayIt('{{meaning}}', 'hi-IN')"> ({{meaning | transliteration}})</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -41,7 +52,10 @@
             <div class="row">
                 <div ng-repeat='(index, definition) in definitions track by $index'>
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <b>-</b> {{definition}}
+                        <div>
+                            <a  ng-click="sayIt('{{definition}}', 'en-GB')"><span class="glyphicon glyphicon-volume-up"></span></a>
+                            <b>-</b> {{definition}}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -55,7 +69,10 @@
             <div class="row">
                 <div ng-repeat='(index, example) in examples track by $index'>
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <b>-</b> {{example}}
+                        <div>
+                            <a  ng-click="sayIt('{{example}}', 'en-GB')"><span class="glyphicon glyphicon-volume-up"></span></a>
+                            <b>-</b> {{example}}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -69,7 +86,10 @@
             <div class="row">
                 <div ng-repeat='similarWord in similarWords track by $index'>
                     <div class="col-xs-4 col-sm-4 col-md-3 col-lg-3" ng-init="synonym.show=true">
-                        <a ng-href="/#!/english-word/{{similarWord}}/meaning-in-marathi">{{similarWord}}</a>
+                        <div>
+                            <a  ng-click="sayIt('{{similarWord}}', 'en-GB')"><span class="glyphicon glyphicon-volume-up"></span></a>
+                            <a ng-href="/#!/english-word/{{similarWord}}/meaning-in-marathi">{{similarWord}}</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -81,7 +101,10 @@
         <div class="row">
             <div ng-repeat="antonyms in dictionary.antonym track by $index">
                 <div class="col-xs-4 col-sm-4 col-md-3 col-lg-3" ng-init="antonym.show=true">
-                    <a ng-href="/#!/english-word/{{antonyms}}/meaning-in-marathi">{{antonyms}}</a>
+                    <div>
+                        <a  ng-click="sayIt('{{antonyms}}', 'en-GB')"><span class="glyphicon glyphicon-volume-up"></span></a>
+                        <a ng-href="/#!/english-word/{{antonyms}}/meaning-in-marathi">{{antonyms}}</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -92,7 +115,10 @@
         <div class="row">
             <div ng-repeat="same in dictionary.seeAlso track by $index">
                 <div class="col-xs-4 col-sm-4 col-md-3 col-lg-3" ng-init="seeAlso.show=true">
-                    <a ng-href="/#!/english-word/{{same}}/meaning-in-marathi">{{same}}</a>
+                    <div>
+                        <a  ng-click="sayIt('{{same}}', 'en-GB')"><span class="glyphicon glyphicon-volume-up"></span></a>
+                        <a ng-href="/#!/english-word/{{same}}/meaning-in-marathi">{{same}}</a>
+                    </div>
                 </div>
             </div>
         </div>

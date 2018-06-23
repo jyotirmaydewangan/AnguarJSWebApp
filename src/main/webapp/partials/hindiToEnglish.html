@@ -22,13 +22,16 @@
 
 
     <div ng-show="target.show" ng-init="searchReverseWord(DictionaryForm.text)">
-        <div class="row"><h3>{{searchBoxWord | capitalize}} meaning in hindi</h3></div>
+        <div class="row"><h3>{{searchBoxWord | capitalize}} meaning in English</h3></div>
         <div ng-repeat="(partOfSpeech, meanings) in dictionary.meaning">
             <div class="row" ng-init="target.show=true"><b>{{partOfSpeech | capitalize}}</b></div>
             <div class="row">
                 <div ng-repeat='meaning in meanings'>
                     <div class="col-xs-4 col-sm-4 col-md-3 col-lg-3">
-                        <a ng-href="/#!/english-word/{{meaning}}/meaning-in-hindi">{{meaning}}</a>
+                        <div>
+                            <a href="" ng-click="sayIt('{{meaning}}', 'en-GB')"><span class="glyphicon glyphicon-volume-up"></span></a>
+                            <a ng-href="/#!/english-word/{{meaning}}/meaning-in-hindi">{{meaning}}</a>
+                        </div>
                     </div>
                 </div>
             </div>

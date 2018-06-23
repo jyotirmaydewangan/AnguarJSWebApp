@@ -1,5 +1,5 @@
 
-var dictionaryApp = angular.module('dictionaryApp', ['ngResource', 'ui.bootstrap', 'sidebarMenu'], function ($dialogProvider) {
+var dictionaryApp = angular.module('dictionaryApp', ['ngResource', 'ui.bootstrap', 'sidebarMenu', 'pubnub.angular.service'], function ($dialogProvider) {
     $dialogProvider.options({backdropClick: false, dialogFade: true});
 });
 
@@ -45,6 +45,12 @@ dictionaryApp.controller("titleCtrl", function($scope, Page) {
 dictionaryApp.filter('capitalize', function() {
     return function(input) {
         return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
+    }
+});
+
+dictionaryApp.filter('transliteration', function() {
+    return function(input) {
+        return transl(input);
     }
 });
 
@@ -130,7 +136,7 @@ dictionaryApp.controller('BrowseController', function($scope, $location, $routeP
     });
 });
 
-dictionaryApp.controller("DictionaryCtrl", function($scope, $http, $rootScope, $location, $window, $routeParams,DictionaryResource, ReverseDictionaryResource, AutocompleteResource, ControllerSharingData, Page) {
+dictionaryApp.controller("DictionaryCtrl", function($scope, $http, $rootScope, $location, $window, $routeParams,DictionaryResource, ReverseDictionaryResource, AutocompleteResource, ControllerSharingData, Page, Pubnub) {
 
     Page.setTitle($location.path().split("/")[2].replace(/-/g, ' ') + " meaning | xyz.com");
 
@@ -257,4 +263,28 @@ dictionaryApp.controller("DictionaryCtrl", function($scope, $http, $rootScope, $
         $scope.hideAutoCompleteList = true;
     }
 
+
+    $scope.sayIt = function (string, language) {
+
+        var langList = ["hi-IN", "en-GB"];
+
+        if(langList.indexOf(language) === -1) {
+            string = slugify(string);
+            language = "hi-IN";
+            console.log(string);
+        }
+
+        var speech = new SpeechSynthesisUtterance(string);
+
+        speech.volume = 1; // 0 to 1
+        speech.rate = 1; // 0.1 to 10
+        speech.pitch = 1; //0 to 2
+        speech.lang = language;
+
+        window.speechSynthesis.speak(speech);
+    };
+
 });
+
+
+

@@ -28,7 +28,10 @@
             <div class="row">
                 <div ng-repeat='meaning in meanings'>
                     <div class="col-xs-4 col-sm-4 col-md-3 col-lg-3">
-                        <a ng-href="/#!/english-word/{{meaning}}/meaning-in-telugu">{{meaning}}</a>
+                        <div>
+                            <a href="" ng-click="sayIt('{{meaning}}', 'en-GB')"><span class="glyphicon glyphicon-volume-up"></span></a>
+                            <a ng-href="/#!/english-word/{{meaning}}/meaning-in-telugu">{{meaning}}</a>
+                        </div>
                     </div>
                 </div>
             </div>
