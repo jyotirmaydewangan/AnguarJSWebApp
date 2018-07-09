@@ -1,0 +1,128 @@
+<div id="keyboard">
+    <div class="row" style="height:35px;">
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('`', '~', '', '')">
+            <span ng-show="!state">`</span><span ng-show="state">~</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('1', '!', '', '')">
+            <span ng-show="!state">1</span><span ng-show="state">!</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('2', '@', '', '')">
+            <span ng-show="!state">2</span><span ng-show="state">@</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('3', '#', '', '')">
+            <span ng-show="!state">3</span><span ng-show="state">#</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('4', '$', '', '')">
+            <span ng-show="!state">4</span><span ng-show="state">$</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('5', '%', '', '')">
+            <span ng-show="!state">5</span><span ng-show="state">%</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('6', '^', '', '')">
+            <span ng-show="!state">6</span><span ng-show="state">^</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('7', '&', '', '')">
+            <span ng-show="!state">7</span><span ng-show="state">&</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('8', '*', '', '')">
+            <span ng-show="!state">8</span><span ng-show="state">*</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('9', '(', '', '')">
+            <span ng-show="!state">9</span><span ng-show="state">(</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('0', ')', '', '')">
+            <span ng-show="!state">0</span><span ng-show="state">)</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('-', '_', '', '')">
+            <span ng-show="!state">-</span><span ng-show="state">_</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('=', '+', '', '')">
+            <span ng-show="!state">=</span><span ng-show="state">+</span>
+        </button>
+    </div>
+    <div class="row" style="height:35px;">
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('q', 'Q', '', '')">
+            <span ng-show="!state">q</span><span ng-show="state">Q</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('w', 'W', '', '')">
+            <span ng-show="!state">w</span><span ng-show="state">W</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('e', 'E', '', '')">
+            <span ng-show="!state">e</span><span ng-show="state">E</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('r', 'R', '', '')">
+            <span ng-show="!state">r</span><span ng-show="state">R</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('t', 'T', '', '')">
+            <span ng-show="!state">t</span><span ng-show="state">T</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('y', 'Y', '', '')">
+            <span ng-show="!state">y</span><span ng-show="state">Y</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('u', 'U', '', '')">
+            <span ng-show="!state">u</span><span ng-show="state">U</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('i', 'I', '', '')">
+            <span ng-show="!state">i</span><span ng-show="state">I</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('o', 'O', '', '')">
+            <span ng-show="!state">o</span><span ng-show="state">O</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('p', 'P', '', '')">
+            <span ng-show="!state">p</span><span ng-show="state">P</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('[', '{', '', '')">
+            <span ng-show="!state">[</span><span ng-show="state">{</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue(']', '}', '', '')">
+            <span ng-show="!state">]</span><span ng-show="state">}</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('\', '|', '', '')">
+            <span ng-show="!state">\</span><span ng-show="state">|</span>
+        </button>
+    </div>
+    <div class="row" style="height:35px;">
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('a', 'A', '', '')">
+            <span ng-show="!state">a</span><span ng-show="state">A</span></button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('s', 'S', '', '')">
+            <span ng-show="!state">s</span><span ng-show="state">S</span></button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('d', 'D', '', '')">
+            <span ng-show="!state">d</span><span ng-show="state">D</span></button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('f', 'F', '', '')">
+            <span ng-show="!state">f</span><span ng-show="state">F</span></button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('g', 'G', '', '')">
+            <span ng-show="!state">g</span><span ng-show="state">G</span></button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('h', 'H', '', '')">
+            <span ng-show="!state">h</span><span ng-show="state">H</span></button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('j', 'J', '', '')">
+            <span ng-show="!state">j</span><span ng-show="state">J</span></button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('k', 'K', '', '')">
+            <span ng-show="!state">k</span><span ng-show="state">K</span></button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('l', 'L', '', '')">
+            <span ng-show="!state">l</span><span ng-show="state">L</span></button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue(';', ':', '', '')">
+            <span ng-show="!state">;</span><span ng-show="state">:</span></button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('','', '', '')">
+            <span ng-show="!state">'</span><span ng-show="state">"</span></button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('del','del', '', '')" style="width: 80px;"><span>Delete</span></button>
+    </div>
+    <div class="row" style="height:35px;">
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="toggleState()" style="width: 80px;"><span ng-style="state && {'font-weight': 'bold'}">Shift</span></button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('z', 'Z', '', '')"><span ng-show="!state">z</span><span ng-show="state">Z</span></button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('x', 'X', '', '')"><span ng-show="!state">x</span><span ng-show="state">X</span></button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('c', 'C', '', '')"><span ng-show="!state">c</span><span ng-show="state">C</span></button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('v', 'V', '', '')"><span ng-show="!state">v</span><span ng-show="state">V</span></button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('b', 'B', '', '')"><span ng-show="!state">b</span><span ng-show="state">B</span></button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('n', 'N', '', '')"><span ng-show="!state">n</span><span ng-show="state">N</span></button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('m', 'M', '', '')"><span ng-show="!state">m</span><span ng-show="state">M</span></button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue(',', '<', '', '')"><span ng-show="!state">,</span><span ng-show="state"><</span></button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('.', '>', '', '')"><span ng-show="!state">.</span><span ng-show="state">></span></button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('/', '?', '', '')"><span ng-show="!state">/</span><span ng-show="state">?</span></button>
+        <button type="button" class="btn btn-primary btn-lg outline"><span style="visibility: hidden;">blank</span></button>
+    </div>
+    <div class="row" style="height:35px;">
+        <button type="button" class="btn btn-primary btn-lg outline" style="width: 100px;"><span>Ctrl + Alt</span></button>
+        <button type="button" class="btn btn-primary btn-lg outline" style="width: 293px;" ng-click="keyValue(' ', ' ', '', '')"><span style="visibility: hidden;" class="">.</span></button>
+        <button type="button" class="btn btn-primary btn-lg outline" style="width: 100px;"><span>Ctrl + Alt</span></button>
+    </div>
+</div>

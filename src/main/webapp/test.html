@@ -33,9 +33,78 @@
 </head>
 <body>
 <div class="wrapper">
-    <div id="header" ng-controller="HeaderCtrl">
-        <div><h1 style="color: white; font-family: 'Rouge Script'; font-weight: bolder; margin: 0 10px 0; text-shadow: 1px 1px 10px #082b34;">Dictionary</h1></div>
-        <div><h5 style="color: white; font-weight: bolder; margin: 0 10px 0; text-shadow: 1px 1px 2px #082b34;">{{HeaderData.finalHeader | capitalize}}</h5></div>
+    <div class="header" ng-controller="HeaderCtrl">
+        <div class="col-md-6 col-lg-6">
+            <div class="row"><a href="/#!/home" class="logo">Dictionary</a></div>
+            <div class="row"><a href="/#!/{{HeaderData.source}}-word/run/meaning-in-{{HeaderData.target}}" class="sublogo">{{HeaderData.finalHeader | capitalize}}</a></div>
+        </div>
+        <div class="col-md-6 col-lg-6">
+            <div id="keyboard">
+                <div style="white-space: nowrap;">
+                    <button  type="button"><span>`</span></button>
+                    <button type="button"><span>1</span></button>
+                    <button type="button"><span>2</span></button>
+                    <button type="button"><span>3</span></button>
+                    <button type="button"><span>4</span></button>
+                    <button type="button"><span>5</span></button>
+                    <button type="button"><span>6</span></button>
+                    <button type="button"><span>7</span></button>
+                    <button type="button"><span>8</span></button>
+                    <button type="button"><span>9</span></button>
+                    <button type="button"><span>0</span></button>
+                    <button  type="button" style="width: 10px;"><span>-</span></button>
+                    <button  type="button" style="width: 10px;"><span>=</span></button>
+                </div>
+                <div style="white-space: nowrap;">
+                    <button type="button"><span>q</span></button>
+                    <button type="button"><span>w</span></button>
+                    <button type="button"><span>e</span></button>
+                    <button type="button"><span>r</span></button>
+                    <button type="button"><span>t</span></button>
+                    <button type="button"><span>y</span></button>
+                    <button type="button"><span>u</span></button>
+                    <button type="button"><span>i</span></button>
+                    <button type="button"><span>o</span></button>
+                    <button type="button"><span>p</span></button>
+                    <button  type="button"><span>[</span></button>
+                    <button  type="button"><span>]</span></button>
+                    <button  type="button"><span>\</span></button>
+                </div>
+                <div style="white-space: nowrap;">
+                    <button type="button"><span>a</span></button>
+                    <button type="button"><span>s</span></button>
+                    <button type="button"><span>d</span></button>
+                    <button type="button"><span>f</span></button>
+                    <button type="button"><span>g</span></button>
+                    <button type="button"><span>h</span></button>
+                    <button type="button"><span>j</span></button>
+                    <button type="button"><span>k</span></button>
+                    <button type="button"><span>l</span></button>
+                    <button  type="button"><span>;</span></button>
+                    <button  type="button"><span>'</span></button>
+                    <button type="button" style="width: 80.25px;"><span>Delete</span></button>
+                </div>
+                <div style="white-space: nowrap;">
+                    <button type="button" style="width: 55px;"><span>Shift</span></button>
+                    <button type="button"><span>z</span></button>
+                    <button type="button"><span>x</span></button>
+                    <button type="button"><span>c</span></button>
+                    <button type="button"><span>v</span></button>
+                    <button type="button"><span>b</span></button>
+                    <button type="button"><span>n</span></button>
+                    <button type="button"><span>m</span></button>
+                    <button  type="button" style="width: 10px;"><span>,</span></button>
+                    <button  type="button" style="width: 10px;"><span>.</span></button>
+                    <button  type="button" style="width: 10px;"><span>/</span></button>
+                    <button type="button" style="width: 62px;"><span>Enter</span></button>
+                </div>
+                <div style="white-space: nowrap;">
+                    <button  type="button" style="width: 95px;"><span>Ctrl + Alt</span></button>
+                    <button type="button" style="width: 293px;"><span style="visibility: hidden;" class="">.</span></button>
+                    <button  type="button" style="width: 95px;"><span>Ctrl + Alt</span></button>
+                </div>
+            </div>
+        </div>
     </div>
     <div id="header_bottom"></div>
     <div class="container" ng-view></div>

@@ -1,0 +1,257 @@
+<div id="keyboard">
+    <div class="row" style="height:35px;">
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('ॊ', 'ऒ', '', '')">
+            <span ng-show="!state && !ctrlState">ॊ</span><span ng-show="state && !ctrlState">ऒ</span>
+            <span style="visibility: hidden;" ng-show="!state && ctrlState">blank</span>
+            <span style="visibility: hidden;" ng-show="state && ctrlState">blank</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('1', 'ऍ', '१', '')">
+            <span ng-show="!state && !ctrlState">1</span><span ng-show="state && !ctrlState">ऍ</span>
+            <span ng-show="!state && ctrlState">१</span>
+            <span style="visibility: hidden;" ng-show="state && ctrlState">blank</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('2', 'ॅ', '२', '')">
+            <span ng-show="!state && !ctrlState">2</span><span ng-show="state && !ctrlState">ॅ</span>
+            <span ng-show="!state && ctrlState">२</span>
+            <span style="visibility: hidden;" ng-show="state && ctrlState">blank</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('3', '्र', '३', '')">
+            <span ng-show="!state && !ctrlState">3</span><span ng-show="state && !ctrlState">्र</span>
+            <span ng-show="!state && ctrlState">३</span>
+            <span style="visibility: hidden;" ng-show="state && ctrlState">blank</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('4', 'र्', '४', '')">
+            <span ng-show="!state && !ctrlState">4</span><span ng-show="state && !ctrlState">र्</span>
+            <span ng-show="!state && ctrlState">४</span>
+            <span style="visibility: hidden;" ng-show="state && ctrlState">blank</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('5', 'ज्ञ', '५', '')">
+            <span ng-show="!state && !ctrlState">5</span><span ng-show="state && !ctrlState">ज्ञ</span>
+            <span ng-show="!state && ctrlState">५</span>
+            <span style="visibility: hidden;" ng-show="state && ctrlState">blank</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('6', 'त्र', '६', '')">
+            <span ng-show="!state && !ctrlState">6</span><span ng-show="state && !ctrlState">त्र</span>
+            <span ng-show="!state && ctrlState">६</span>
+            <span style="visibility: hidden;" ng-show="state && ctrlState">blank</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('7', 'क्ष', '७', '')">
+            <span ng-show="!state && !ctrlState">7</span><span ng-show="state && !ctrlState">क्ष</span>
+            <span ng-show="!state && ctrlState">७</span>
+            <span style="visibility: hidden;" ng-show="state && ctrlState">blank</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('8', 'श्र', '८', '')">
+            <span ng-show="!state && !ctrlState">8</span><span ng-show="state && !ctrlState">श्र</span>
+            <span ng-show="!state && ctrlState">८</span>
+            <span style="visibility: hidden;" ng-show="state && ctrlState">blank</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('9', '(', '९', '')">
+            <span ng-show="!state && !ctrlState">9</span><span ng-show="state && !ctrlState">(</span>
+            <span ng-show="!state && ctrlState">९</span>
+            <span style="visibility: hidden;" ng-show="state && ctrlState">blank</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('0', ')', '०', '')">
+            <span ng-show="!state && !ctrlState">0</span><span ng-show="state && !ctrlState">)</span>
+            <span ng-show="!state && ctrlState">०</span>
+            <span style="visibility: hidden;" ng-show="state && ctrlState">blank</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('-', 'ः', '', '')">
+            <span ng-show="!state && !ctrlState">-</span><span ng-show="state && !ctrlState">ः</span>
+            <span style="visibility: hidden;" ng-show="!state && ctrlState">blank</span>
+            <span style="visibility: hidden;" ng-show="state && ctrlState">blank</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('ृ', 'ऋ', 'ॄ', 'ॠ')">
+            <span ng-show="!state && !ctrlState">ृ</span><span ng-show="state && !ctrlState">ऋ</span>
+            <span ng-show="!state && ctrlState">ॄ</span>
+            <span ng-show="state && ctrlState">ॠ</span>
+        </button>
+    </div>
+    <div class="row" style="height:35px;">
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('ौ', 'औ', '', '')">
+            <span ng-show="!state && !ctrlState">ौ</span><span ng-show="state && !ctrlState">औ</span>
+            <span style="visibility: hidden;" ng-show="!state && ctrlState">blank</span>
+            <span style="visibility: hidden;" ng-show="state && ctrlState">blank</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('ै', 'ऐ', '', '')">
+            <span ng-show="!state && !ctrlState">ै</span><span ng-show="state && !ctrlState">ऐ</span>
+            <span style="visibility: hidden;" ng-show="!state && ctrlState">blank</span>
+            <span style="visibility: hidden;" ng-show="state && ctrlState">blank</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('ा', 'आ', '', '')">
+            <span ng-show="!state && !ctrlState">ा</span><span ng-show="state && !ctrlState">आ</span>
+            <span style="visibility: hidden;" ng-show="!state && ctrlState">blank</span>
+            <span style="visibility: hidden;" ng-show="state && ctrlState">blank</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('ी', 'ई', 'ॣ', 'ॡ')">
+            <span ng-show="!state && !ctrlState">ी</span><span ng-show="state && !ctrlState">ई</span>
+            <span ng-show="!state && ctrlState">ॣ</span>
+            <span ng-show="state && ctrlState">ॡ</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('ू', 'ऊ', '', '')">
+            <span ng-show="!state && !ctrlState">ू</span><span ng-show="state && !ctrlState">ऊ</span>
+            <span style="visibility: hidden;" ng-show="!state && ctrlState">blank</span>
+            <span style="visibility: hidden;" ng-show="state && ctrlState">blank</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('ब', 'भ', '', '')">
+            <span ng-show="!state && !ctrlState">ब</span><span ng-show="state && !ctrlState">भ</span>
+            <span style="visibility: hidden;" ng-show="!state && ctrlState">blank</span>
+            <span style="visibility: hidden;" ng-show="state && ctrlState">blank</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('ह', 'ङ', '', '')">
+            <span ng-show="!state && !ctrlState">ह</span><span ng-show="state && !ctrlState">ङ</span>
+            <span style="visibility: hidden;" ng-show="!state && ctrlState">blank</span>
+            <span style="visibility: hidden;" ng-show="state && ctrlState">blank</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('ग', 'घ', 'ग़', '')">
+            <span ng-show="!state && !ctrlState">ग</span><span ng-show="state && !ctrlState">घ</span>
+            <span ng-show="!state && ctrlState">ग़</span>
+            <span style="visibility: hidden;" ng-show="state && ctrlState">blank</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('द', 'ध', '', '')">
+            <span ng-show="!state && !ctrlState">द</span><span ng-show="state && !ctrlState">ध</span>
+            <span style="visibility: hidden;" ng-show="!state && ctrlState">blank</span>
+            <span style="visibility: hidden;" ng-show="state && ctrlState">blank</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('ज', 'झ', 'ज़', '')">
+            <span ng-show="!state && !ctrlState">ज</span><span ng-show="state && !ctrlState">झ</span>
+            <span ng-show="!state && ctrlState">ज़</span>
+            <span style="visibility: hidden;" ng-show="state && ctrlState">blank</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('ड', 'ढ', 'ड़', 'ढ़')">
+            <span ng-show="!state && !ctrlState">ड</span><span ng-show="state && !ctrlState">ढ</span>
+            <span ng-show="!state && ctrlState">ड़</span>
+            <span ng-show="state && ctrlState">ढ़</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('़', 'ञ', '', '')">
+            <span ng-show="!state && !ctrlState">़</span><span ng-show="state && !ctrlState">ञ</span>
+            <span style="visibility: hidden;" ng-show="!state && ctrlState">blank</span>
+            <span style="visibility: hidden;" ng-show="state && ctrlState">blank</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('ॉ', 'ऑ', '', '')">
+            <span ng-show="!state && !ctrlState">ॉ</span><span ng-show="state && !ctrlState">ऑ</span>
+            <span style="visibility: hidden;" ng-show="!state && ctrlState">blank</span>
+            <span style="visibility: hidden;" ng-show="state && ctrlState">blank</span>
+        </button>
+    </div>
+    <div class="row" style="height:35px;">
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('ो', 'ओ', '', '')">
+            <span ng-show="!state && !ctrlState">ो</span><span ng-show="state && !ctrlState">ओ</span>
+            <span style="visibility: hidden;" ng-show="!state && ctrlState">blank</span>
+            <span style="visibility: hidden;" ng-show="state && ctrlState">blank</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('े', 'ए', '', '')">
+            <span ng-show="!state && !ctrlState">े</span><span ng-show="state && !ctrlState">ए</span>
+            <span style="visibility: hidden;" ng-show="!state && ctrlState">blank</span>
+            <span style="visibility: hidden;" ng-show="state && ctrlState">blank</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('्', 'अ', '', '')">
+            <span ng-show="!state && !ctrlState">्</span><span ng-show="state && !ctrlState">अ</span>
+            <span style="visibility: hidden;" ng-show="!state && ctrlState">blank</span>
+            <span style="visibility: hidden;" ng-show="state && ctrlState">blank</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('ि', 'इ', 'ॢ', 'ऌ')">
+            <span ng-show="!state && !ctrlState">ि</span><span ng-show="state && !ctrlState">इ</span>
+            <span ng-show="!state && ctrlState">ॢ</span>
+            <span ng-show="state && ctrlState">ऌ</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('ु', 'उ', '', '')">
+            <span ng-show="!state && !ctrlState">ु</span><span ng-show="state && !ctrlState">उ</span>
+            <span style="visibility: hidden;" ng-show="!state && ctrlState">blank</span>
+            <span style="visibility: hidden;" ng-show="state && ctrlState">blank</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('प', 'फ', '', 'फ़')">
+            <span ng-show="!state && !ctrlState">प</span><span ng-show="state && !ctrlState">फ</span>
+            <span style="visibility: hidden;" ng-show="!state && ctrlState">blank</span>
+            <span ng-show="state && ctrlState">फ़</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('र', 'ऱ', '', '')">
+            <span ng-show="!state && !ctrlState">र</span><span ng-show="state && !ctrlState">ऱ</span>
+            <span style="visibility: hidden;" ng-show="!state && ctrlState">blank</span>
+            <span style="visibility: hidden;" ng-show="state && ctrlState">blank</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('क', 'ख', 'क़', 'ख़')">
+            <span ng-show="!state && !ctrlState">क</span><span ng-show="state && !ctrlState">ख</span>
+            <span ng-show="!state && ctrlState">क़</span>
+            <span ng-show="state && ctrlState">ख़</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('त', 'थ', '', '')">
+            <span ng-show="!state && !ctrlState">त</span><span ng-show="state && !ctrlState">थ</span>
+            <span style="visibility: hidden;" ng-show="!state && ctrlState">blank</span>
+            <span style="visibility: hidden;" ng-show="state && ctrlState">blank</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('च', 'छ', '॒', '')">
+            <span ng-show="!state && !ctrlState">च</span><span ng-show="state && !ctrlState">छ</span>
+            <span ng-show="!state && ctrlState">॒</span>
+            <span style="visibility: hidden;" ng-show="state && ctrlState">blank</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('ट','ठ', '', '')">
+            <span ng-show="!state && !ctrlState">ट</span><span ng-show="state && !ctrlState">ठ</span>
+            <span style="visibility: hidden;" ng-show="!state && ctrlState">blank</span>
+            <span style="visibility: hidden;" ng-show="state && ctrlState">blank</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('del','del', '', '')" style="width: 80px;"><span>Delete</span></button>
+    </div>
+    <div class="row" style="height:35px;">
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="toggleState()" style="width: 80px;">
+            <span ng-style="state && {'font-weight': 'bold'}">Shift</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('ॆ', 'ऎ', '॓', '')">
+            <span ng-show="!state && !ctrlState">ॆ</span><span ng-show="state && !ctrlState">ऎ</span>
+            <span ng-show="!state && ctrlState">॓</span>
+            <span style="visibility: hidden;" ng-show="state && ctrlState">blank</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('ं', 'ँ', '', 'ॐ')">
+            <span ng-show="!state && !ctrlState">ं</span><span ng-show="state && !ctrlState">ँ</span>
+            <span style="visibility: hidden;" ng-show="!state && ctrlState">blank</span>
+            <span ng-show="state && ctrlState">ॐ</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('म', 'ण', '॔', '')">
+            <span ng-show="!state && !ctrlState">म</span><span ng-show="state && !ctrlState">ण</span>
+            <span ng-show="!state && ctrlState">॔</span>
+            <span style="visibility: hidden;" ng-show="state && ctrlState">blank</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('न', 'ऩ', '', '')">
+            <span ng-show="!state && !ctrlState">न</span><span ng-show="state && !ctrlState">ऩ</span>
+            <span style="visibility: hidden;" ng-show="!state && ctrlState">blank</span>
+            <span style="visibility: hidden;" ng-show="state && ctrlState">blank</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('व', 'ऴ', '', '')">
+            <span ng-show="!state && !ctrlState">व</span><span ng-show="state && !ctrlState">ऴ</span>
+            <span style="visibility: hidden;" ng-show="!state && ctrlState">blank</span>
+            <span style="visibility: hidden;" ng-show="state && ctrlState">blank</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('ल', 'ळ', '', '')">
+            <span ng-show="!state && !ctrlState">ल</span><span ng-show="state && !ctrlState">ळ</span>
+            <span style="visibility: hidden;" ng-show="!state && ctrlState">blank</span>
+            <span style="visibility: hidden;" ng-show="state && ctrlState">blank</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('स', 'श', '', '')">
+            <span ng-show="!state && !ctrlState">स</span><span ng-show="state && !ctrlState">श</span>
+            <span style="visibility: hidden;" ng-show="!state && ctrlState">blank</span>
+            <span style="visibility: hidden;" ng-show="state && ctrlState">blank</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue(',', 'ष', '', '')">
+            <span ng-show="!state && !ctrlState">,</span><span ng-show="state && !ctrlState">ष</span>
+            <span style="visibility: hidden;" ng-show="!state && ctrlState">blank</span>
+            <span style="visibility: hidden;" ng-show="state && ctrlState">blank</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('.', '।', '॰', '')">
+            <span ng-show="!state && !ctrlState">.</span><span ng-show="state && !ctrlState">।</span>
+            <span ng-show="!state && ctrlState">॰</span>
+            <span style="visibility: hidden;" ng-show="state && ctrlState">blank</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline" ng-click="keyValue('य', 'य़', '॥', 'ऽ')">
+            <span ng-show="!state && !ctrlState">य</span><span ng-show="state && !ctrlState">य़</span>
+            <span ng-show="!state && ctrlState">॥</span>
+            <span ng-show="state && ctrlState">ऽ</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg outline">
+            <span style="visibility: hidden;">blank</span>
+        </button>
+    </div>
+    <div class="row" style="height:35px;">
+        <button type="button" class="btn btn-primary btn-lg outline" style="width: 100px;" ng-click="toggleCtrlState()"><span ng-style=" ctrlState && {'font-weight': 'bold'}">Ctrl + Alt</span></button>
+        <button type="button" class="btn btn-primary btn-lg outline" style="width: 293px;" ng-click="keyValue(' ', ' ', ' ', ' ')"><span style="visibility: hidden;" class="">.</span></button>
+        <button type="button" class="btn btn-primary btn-lg outline" style="width: 100px;" ng-click="toggleCtrlState()"><span ng-style=" ctrlState && {'font-weight': 'bold'}">Ctrl + Alt</span></button>
+    </div>
+</div>

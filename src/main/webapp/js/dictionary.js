@@ -66,8 +66,61 @@ dictionaryApp.factory('ControllerSharingData', function(){
     return { source: '', target: '', finalHeader: ''};
 });
 
-dictionaryApp.controller("HeaderCtrl", function($scope, ControllerSharingData) {
+dictionaryApp.controller("HeaderCtrl", ['$scope', 'ControllerSharingData', 'virtualKeyBoard', function($scope, ControllerSharingData, virtualKeyBoard) {
     $scope.HeaderData = ControllerSharingData;
+
+    $scope.virtualKeyBoard = virtualKeyBoard;
+
+    $scope.templates = {
+        english :{ url: 'partials/englishKeyboard.html' },
+        hindi   :{ url: 'partials/hindiKeyboard.html'},
+        telugu  :{ url: 'partials/teluguKeyboard.html'}
+    };
+
+
+
+    $scope.toggleState = function() {
+        $scope.state = !$scope.state;
+    };
+
+    $scope.toggleCtrlState = function() {
+        $scope.ctrlState = !$scope.ctrlState;
+    };
+
+    $scope.keyValue = function(str1, str2, str3, str4) {
+
+        if(str1 == 'del' && str2 == 'del'){
+            $scope.virtualKeyBoard.text = $scope.virtualKeyBoard.text.substring(0, $scope.virtualKeyBoard.text.length - 1);
+        } else if ($scope.state && $scope.ctrlState) {
+            $scope.virtualKeyBoard.text += str4;
+        } else if ($scope.state && !$scope.ctrlState) {
+            $scope.virtualKeyBoard.text += str2;
+        } else if (!$scope.state && $scope.ctrlState) {
+            $scope.virtualKeyBoard.text += str3;
+        } else {
+            $scope.virtualKeyBoard.text += str1;
+        }
+
+        $scope.virtualKeyBoard.fillTextBox($scope.virtualKeyBoard.text);
+    };
+
+    $scope.virtualKeyBoard.setKeyBoard = function (lang) {
+
+        if(lang == 'english') {
+            $scope.template = $scope.templates.english;
+        } else if(lang == 'hindi') {
+            $scope.template = $scope.templates.hindi;
+        } else if (lang == 'telugu') {
+            $scope.template = $scope.templates.telugu;
+        } else {
+            $scope.template = "";
+        }
+    };
+
+}]);
+
+dictionaryApp.service('virtualKeyBoard', function() {
+    this.text = "";
 });
 
 
@@ -93,7 +146,7 @@ dictionaryApp.controller('DetailController', function($scope, $location, Control
     });
 });
 
-dictionaryApp.controller('BrowseController', function($scope, $location, $routeParams, BrowseResource, ControllerSharingData, Page) {
+dictionaryApp.controller('BrowseController', [ '$scope', '$location', '$routeParams', 'BrowseResource', 'ControllerSharingData', 'Page', 'virtualKeyBoard', function($scope, $location, $routeParams, BrowseResource, ControllerSharingData, Page, virtualKeyBoard) {
 
     $scope.char = $routeParams.char;
     $scope.source = $routeParams.source;
@@ -101,6 +154,7 @@ dictionaryApp.controller('BrowseController', function($scope, $location, $routeP
     $scope.page = $routeParams.page;
 
     $scope.HeaderData = ControllerSharingData;
+    $scope.virtualKeyBoard = virtualKeyBoard;
 
     if($scope.target != undefined) {
         Page.setTitle($scope.source + " to "+ $scope.target + " dictionary | xyz.com");
@@ -121,6 +175,10 @@ dictionaryApp.controller('BrowseController', function($scope, $location, $routeP
 
         if($scope.target != undefined) {
             $scope.HeaderData.finalHeader = $scope.source + " to " + $scope.target + " dictionary";
+            $scope.HeaderData.source = $scope.source;
+            $scope.HeaderData.target = $scope.target;
+            $scope.virtualKeyBoard.setKeyBoard($scope.source);
+
             var paramForm  = {};
             paramForm.char = $scope.char;
             paramForm.page = $scope.page;
@@ -134,9 +192,9 @@ dictionaryApp.controller('BrowseController', function($scope, $location, $routeP
             //$scope.HeaderData.finalHeader = "Browse dictionary";
         }
     });
-});
+}]);
 
-dictionaryApp.controller("DictionaryCtrl", function($scope, $http, $rootScope, $location, $window, $routeParams,DictionaryResource, ReverseDictionaryResource, AutocompleteResource, ControllerSharingData, Page, Pubnub) {
+dictionaryApp.controller("DictionaryCtrl", ['$scope', '$http', '$rootScope', '$location', '$window', '$routeParams', 'DictionaryResource', 'ReverseDictionaryResource', 'AutocompleteResource', 'ControllerSharingData', 'Page', 'Pubnub', 'virtualKeyBoard', function($scope, $http, $rootScope, $location, $window, $routeParams,DictionaryResource, ReverseDictionaryResource, AutocompleteResource, ControllerSharingData, Page, Pubnub, virtualKeyBoard) {
 
     Page.setTitle($location.path().split("/")[2].replace(/-/g, ' ') + " meaning | xyz.com");
 
@@ -145,7 +203,16 @@ dictionaryApp.controller("DictionaryCtrl", function($scope, $http, $rootScope, $
         text: {}
     }
 
+    $scope.virtualKeyBoard = virtualKeyBoard;
+
+    $scope.virtualKeyBoard.fillTextBox = function (string) {
+        $scope.DictionaryForm.text.word = string;
+        $scope.complete($scope.DictionaryForm.text.word, $scope.DictionaryForm.text.lang);
+    };
+
     $scope.DictionaryForm.text.word = $routeParams.word;
+
+    $scope.virtualKeyBoard.text = $scope.DictionaryForm.text.word;
 
     $scope.HeaderData = ControllerSharingData;
 
@@ -172,13 +239,14 @@ dictionaryApp.controller("DictionaryCtrl", function($scope, $http, $rootScope, $
 
     $scope.$watch('updateHeader', function() {
         $scope.HeaderData.finalHeader = $scope.HeaderData.source + " to " + $scope.HeaderData.target + " Dictionary";
+        $scope.virtualKeyBoard.setKeyBoard($scope.HeaderData.source);
     });
 
     $scope.searchWord = function (word) {
 
-        if (word.word != undefined) {
+        if (word.word != undefined && $scope.searchBoxWord != word.word) {
             $scope.searchBoxWord = word.word;
-
+            $scope.virtualKeyBoard.text = word.word;
             $scope.target.show = false;
             $scope.definition.show = false;
             $scope.example.show = false;
@@ -204,11 +272,11 @@ dictionaryApp.controller("DictionaryCtrl", function($scope, $http, $rootScope, $
                 $window.ga('send', 'pageview',{'title': Page.title()});
             }
         }
-    }
+    };
 
     $scope.searchReverseWord = function (word) {
 
-        if (word.word != undefined) {
+        if (word.word != undefined && $scope.searchBoxWord != word.word) {
             $scope.searchBoxWord = word.word;
 
             $scope.target.show = false;
@@ -236,7 +304,7 @@ dictionaryApp.controller("DictionaryCtrl", function($scope, $http, $rootScope, $
                 $window.ga('send', 'pageview',{'title': Page.title()});
             }
         }
-    }
+    };
 
 
     $scope.complete = function (word, lang) {
@@ -247,6 +315,8 @@ dictionaryApp.controller("DictionaryCtrl", function($scope, $http, $rootScope, $
         paramForm.lang = lang;
         paramForm.word = word;
 
+        $scope.virtualKeyBoard.text = word;
+
         AutocompleteResource.query(paramForm, function (response) {
             angular.forEach(response, function (item) {
                 if (item) {
@@ -256,12 +326,13 @@ dictionaryApp.controller("DictionaryCtrl", function($scope, $http, $rootScope, $
         });
 
         $scope.filterWords = output;
-    }
+    };
     
     $scope.fillTextBox = function (string) {
         $scope.DictionaryForm.text.word = string;
+        $scope.virtualKeyBoard.text = string;
         $scope.hideAutoCompleteList = true;
-    }
+    };
 
 
     $scope.sayIt = function (string, language) {
@@ -284,7 +355,7 @@ dictionaryApp.controller("DictionaryCtrl", function($scope, $http, $rootScope, $
         window.speechSynthesis.speak(speech);
     };
 
-});
+}]);
 
 
 

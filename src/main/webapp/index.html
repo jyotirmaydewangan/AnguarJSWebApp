@@ -24,7 +24,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
     <script src="https://cdn.pubnub.com/pubnub-3.15.1.min.js"></script>
     <script src="https://cdn.pubnub.com/sdk/pubnub-angular/pubnub-angular-3.2.1.min.js"></script>
-
     <script src="https://unpkg.com/transliteration/lib/browser/transliteration.min.js"></script>
 
 
@@ -33,9 +32,12 @@
 </head>
 <body>
 <div class="wrapper">
-    <div id="header" ng-controller="HeaderCtrl">
-        <div><h1 style="color: white; font-family: 'Rouge Script'; font-weight: bolder; margin: 0 10px 0; text-shadow: 1px 1px 10px #082b34;">Dictionary</h1></div>
-        <div><h5 style="color: white; font-weight: bolder; margin: 0 10px 0; text-shadow: 1px 1px 2px #082b34;">{{HeaderData.finalHeader | capitalize}}</h5></div>
+    <div class="header" ng-controller="HeaderCtrl">
+        <div class="col-md-5 col-lg-5">
+            <div class="row"><a href="/#!/home" class="logo">Dictionary</a></div>
+            <div class="row"><a href="/#!/{{HeaderData.source}}-word/run/meaning-in-{{HeaderData.target}}" class="sublogo">{{HeaderData.finalHeader | capitalize}}</a></div>
+        </div>
+        <div class="col-md-7 col-lg-7" ng-include="template.url"></div>
     </div>
     <div id="header_bottom"></div>
     <div class="container" ng-view></div>
