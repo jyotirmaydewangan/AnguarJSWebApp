@@ -1,7 +1,7 @@
 var sidebarMenu = angular.module('sidebarMenu', ['ngRoute'])
     .config(function ($locationProvider, $routeProvider) {
         // browser reload doesn't work when html5 mode is turned on..
-        //$locationProvider.html5Mode(true);
+        $locationProvider.html5Mode(true);
         $routeProvider
             .when('/browse', {templateUrl: '/partials/browse.html', controller:'BrowseController'})
             .when('/', {templateUrl: '/partials/home.html', controller:'DetailController'})
@@ -38,8 +38,8 @@ var sidebarMenu = angular.module('sidebarMenu', ['ngRoute'])
             .when('/bengali-word/:word/meaning-in-english', {templateUrl : '/partials/bengaliToEnglish.html', controller:'DictionaryCtrl'})
             .when('/marathi-word/:word/meaning-in-english', {templateUrl : '/partials/marathiToEnglish.html', controller:'DictionaryCtrl'})
 
-            .otherwise({redirectTo: '/'});
-        $locationProvider.hashPrefix("!");
+            .otherwise({redirectTo: '/home'});
+            //$locationProvider.hashPrefix("!");
     });
 
 sidebarMenu.controller("MenuCtrl", function ($scope, $location, Menu) {
@@ -77,27 +77,27 @@ sidebarMenu.factory('Menu', function () {
     Menu.items = [
         {
             class: "",
-            href: "/#!/dictionary/english-to-hindi",
+            href: "/dictionary/english-to-hindi",
             name: "English to Hindi"
         },
         {
             class: "",
-            href: "/#!/dictionary/english-to-urdu",
+            href: "/dictionary/english-to-urdu",
             name: "English to Urdu"
         },
         {
             class: "",
-            href: "/#!/dictionary/english-to-telugu",
+            href: "/dictionary/english-to-telugu",
             name: "English to Telugu"
         },
         {
             class: "",
-            href: "/#!/dictionary/english-to-bengali",
+            href: "/dictionary/english-to-bengali",
             name: "English to Bengali"
         },
         {
             class: "",
-            href: "/#!/dictionary/english-to-marathi",
+            href: "/dictionary/english-to-marathi",
             name: "English to Marathi"
         }
     ];

@@ -72,9 +72,9 @@ dictionaryApp.controller("HeaderCtrl", ['$scope', 'ControllerSharingData', 'virt
     $scope.virtualKeyBoard = virtualKeyBoard;
 
     $scope.templates = {
-        english :{ url: 'partials/englishKeyboard.html' },
-        hindi   :{ url: 'partials/hindiKeyboard.html'},
-        telugu  :{ url: 'partials/teluguKeyboard.html'}
+        english :{ url: 'partials/keyboard/englishKeyboard.html' },
+        hindi   :{ url: 'partials/keyboard/hindiKeyboard.html'},
+        telugu  :{ url: 'partials/keyboard/teluguKeyboard.html'}
     };
 
 

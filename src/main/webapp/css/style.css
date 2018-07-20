@@ -112,6 +112,10 @@ form.example button {
     height:15px;
 }
 
+
+.searchBoxWord {
+    color : #67a1cc
+}
 /* ------------------ navigation ------------------- */
 
 #nav {
@@ -167,7 +171,6 @@ h3{
     font-size: 110%;
     font-weight: normal;
     color: #008493;
-    text-shadow: 0 1px 1px #dadada;
 }
 
 p{
