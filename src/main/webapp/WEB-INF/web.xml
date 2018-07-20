@@ -14,6 +14,22 @@
         <location>/</location>
     </error-page>
 
+
+    <servlet>
+        <servlet-name>default</servlet-name>
+        <servlet-class>org.eclipse.jetty.servlet.DefaultServlet</servlet-class>
+        <init-param>
+            <param-name>acceptRanges</param-name>
+            <param-value>true</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>cacheControl</param-name>
+            <param-value>max-age=3600000,public</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
     <servlet>
         <servlet-name>proxy</servlet-name>
         <servlet-class>org.eclipse.jetty.servlets.ProxyServlet$Transparent</servlet-class>
