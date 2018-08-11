@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<html ng-app="dictionaryApp" ng-controller="titleCtrl">
+<html ng-app="dictionaryApp">
 
 <head>
     <base href="/">
+    <title ng-bind="ngMeta.title | capitalize"></title>
+    <meta name="description" content="{{ngMeta.description}}">
+    <meta name="keywords" content="{{ngMeta.keywords}}">
+    <meta property="og:title" content="{{ngMeta.title}}" />
+    <meta property="og:description" content="{{ngMeta.description}}" />
+    <meta property="og:keywords" content="{{ngMeta.keywords}}" />
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0, initial-scale=1.0", user-scalable=no" />
+    <meta http-equiv="Content-Language" content="en" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="google-site-verification" content="bI4Ys9m6r_I7skxSUvG1GzW0A8klT-6oOpMEV3wi-PI" />
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <!-- Google Analytics -->
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -14,32 +25,7 @@
         ga('create', 'UA-112923779-1', 'auto');
     </script>
     <!-- End Google Analytics -->
-    <!--<meta name="fragment" content="!">-->
-    <meta name="viewport" content="width=device-width, maximum-scale=1.0, initial-scale=1.0", user-scalable=no" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-
-    <link rel="stylesheet" href="css/style.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-    <!--<link src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.js">-->
-
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
-    <script src="https://cdn.pubnub.com/pubnub-3.15.1.min.js"></script>
-    <script src="https://cdn.pubnub.com/sdk/pubnub-angular/pubnub-angular-3.2.1.min.js"></script>
-    <script src="https://unpkg.com/transliteration/lib/browser/transliteration.min.js"></script>
-
-    <!-- AngularJS and Boostrap JS files-->
-    <script src="js/lib/min/angular-1.2.0rc1.js"></script>
-    <script src="js/lib/min/angular-resource-1.2.0rc1.js"></script>
-    <script src="js/lib/min/angular-route-1.2.0rc1.js"></script>
-    <script src="js/lib/min/ui-bootstrap-tpls-0.5.0.js"></script>
-
-    <!-- Project specific JS files -->
-    <script src="js/menu.min.js"></script>
-    <script src="js/dictionary.min.js"></script>
-
-    <title ng-bind="Page.title() | capitalize"></title>
+    <style>html,body{height:100%}body{background-image:url(../images/cream_pixels.fw.png);background-repeat:repeat;margin-top:10px}.wrapper{max-width:1126px;min-height:100%;background-color:#FFF;width:100%;padding-bottom:60px;margin:0 auto -20px}.header{color:white;overflow:hidden;background-color:#67a1cc;padding:15px 10px}.header a{color:inherit;text-align:center;text-decoration:none;font-size:18px;line-height:25px;border-radius:4px;font-family:'Rouge Script';text-shadow:1px 1px 10px #082b34;font-weight:bolder;margin:0 10px 0}.header a.logo{color:inherit;font-size:40px;font-weight:700;text-decoration:none}.header a.sublogo{color:inherit;font-size:15px;font-weight:700;text-decoration:none;font-family:'Rouge Script'}#header_bottom{width:100%;background-repeat:repeat-x;height:15px}#footer_top{width:100%;background-repeat:repeat-x;height:15px}p{font-size:12px;font-family:Arial,Helvetica,sans-serif;text-align:left;line-height:18px;text-align:justify}a{color:#054bcc}footer{max-width:1126px;position:fixed;bottom:0;width:100%;background-repeat:repeat-x;text-align:center}.wrap-footer{background-repeat:repeat-x}.ftr{background:#67a1cc;font-family:Arial,Helvetica,sans-serif;padding:1px 0;color:#fff}.ftr p{font-size:12px;font-family:Arial,Helvetica,sans-serif;text-align:center;line-height:30px}.ftr a{text-decoration:underline;color:white}@media only screen and (max-width:768px){body{margin-top:10px}.header{width:100%;background-color:#67a1cc;background-repeat:no-repeat;height:100px;margin-left:0 0 0 0;display:block}#header_bottom{width:100%;background-repeat:repeat-x;position:relative;z-index:3;display:block}#footer_top{width:100%;background-repeat:repeat-x;position:relative;z-index:3;display:block}}@media only screen and (max-width:320px){body{margin-top:1px}.header{width:100%;background-color:#67a1cc;background-repeat:no-repeat;height:100px;margin-left:0 0 0 0}}html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}body{margin:0}footer{display:block}a{background-color:transparent}*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}:after,:before{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}html{font-size:10px}body{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:14px;line-height:1.42857143;color:#333;background-color:#fff}a{color:#337ab7;text-decoration:none}p{margin:0 0 10px}.container{padding-right:15px;padding-left:15px;margin-right:auto;margin-left:auto}@media (min-width:768px){.container{width:750px}}@media (min-width:992px){.container{width:970px}}@media (min-width:1200px){.container{width:1170px}}.row{margin-right:-15px;margin-left:-15px}.col-lg-5,.col-lg-7,.col-md-5,.col-md-7{position:relative;min-height:1px;padding-right:15px;padding-left:15px}@media (min-width:992px){.col-md-5,.col-md-7{float:left}.col-md-7{width:58.33333333%}.col-md-5{width:41.66666667%}}@media (min-width:1200px){.col-lg-5,.col-lg-7{float:left}.col-lg-7{width:58.33333333%}.col-lg-5{width:41.66666667%}}.container:after,.container:before,.row:after,.row:before{display:table;content:" "}.container:after,.row:after{clear:both}@-ms-viewport{width:device-width}</style>
 </head>
 <body>
 <div class="wrapper">
@@ -68,5 +54,17 @@
         </div>
     </footer>
 </div>
+<link rel="stylesheet" href="css/style.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="js/min/angular.min.js"></script>
+<script src="js/min/angular-resource.min.js"></script>
+<script src="js/min/angular-route.min.js"></script>
+<script src="js/min/ui-bootstrap-tpls.min.js"></script>
+<script src="js/min/menu.min.js"></script>
+<script src="js/min/dictionary.min.js"></script>
+<script src="https://cdn.pubnub.com/pubnub-3.15.1.min.js"></script>
+<script src="https://cdn.pubnub.com/sdk/pubnub-angular/pubnub-angular-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ng-meta/1.0.0/ngMeta.min.js"></script>
+<script async src="https://unpkg.com/transliteration@1.6.5/lib/browser/transliteration.min.js"></script>
 </body>
 </html>

@@ -1,7 +1,15 @@
 package com.dewangan.jyotirmay;
 
 import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.servlet.ErrorPageErrorHandler;
 import org.eclipse.jetty.webapp.WebAppContext;
+
+import javax.servlet.DispatcherType;
+
+import java.util.EnumSet;
+import java.util.Iterator;
+
+import static javax.servlet.DispatcherType.*;
 
 /**
  * This class launches the web application in an embedded Jetty container.
@@ -25,6 +33,11 @@ public class AnguarJSWebApp {
         webapp.setContextPath("/");
         webapp.setDescriptor(webappDirLocation + "/WEB-INF/web.xml");
         webapp.setResourceBase(webappDirLocation);
+
+        PageErrorHandler pageErrorHandler = new PageErrorHandler();
+        pageErrorHandler.addErrorPage(404, "/");
+        webapp.setErrorHandler(pageErrorHandler);
+
 
         server.setHandler(webapp);
         server.start();

@@ -1,6 +1,6 @@
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-controller="DictionaryCtrl">
     <div class="row" ng-show="DictionaryForm.show">
-        <div class="col-md-6 col-lg-6"></div>
+        <div  class="col-md-6 col-lg-6"></div>
         <div class="col-md-6 col-lg-6">
             <form class="example" ng-submit="searchWord(DictionaryForm.text)">
                 <input type="text" placeholder="Search Word ..." ng-model="DictionaryForm.text.word" ng-keyup="complete(DictionaryForm.text.word, 'english')" class="form-control">
@@ -14,6 +14,7 @@
                         </a>
                     </li>
                 </ul>
+
                 <input type="text" ng-show="false" ng-model="DictionaryForm.text.lang" ng-init="DictionaryForm.text.lang ='bengali'; HeaderData.source = 'english'; HeaderData.target = 'bengali'">
                 <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-search"></i></button>
             </form>
@@ -21,7 +22,12 @@
     </div>
 
     <div ng-show="target.show" ng-init="searchWord(DictionaryForm.text)">
-        <div class="row"><h3><span class="searchBoxWord">{{searchBoxWord | capitalize}}</span> meaning in bengali</h3></div>
+        <div class="row">
+            <h3>
+                <a  ng-click="sayIt('{{searchBoxWord}}', 'en-GB')"><span class="glyphicon glyphicon-volume-up"></span></a>
+                <span class="searchBoxWord" ng-bind="searchBoxWord | capitalize"></span> meaning in bengali
+            </h3>
+        </div>
         <div class="row">
             <label class="switch">
                 <input type="checkbox" ng-model="showTransl">
@@ -30,14 +36,16 @@
             </label>
         </div>
         <div ng-repeat="(partOfSpeech, meanings) in dictionary.meaning">
-            <div class="row" ng-init="target.show=true"><b>{{partOfSpeech | capitalize}}</b></div>
+            <div class="row" ng-init="target.show=true"><b ng-bind="partOfSpeech | capitalize"></b></div>
             <div class="row">
                 <div ng-repeat='meaning in meanings'>
                     <div class="col-xs-4 col-sm-4 col-md-3 col-lg-3">
                         <div>
                             <a ng-click="sayIt('{{meaning}}', 'dummy')"><span class="glyphicon glyphicon-volume-up"></span></a>
-                            <a ng-href="/bengali-word/{{meaning}}/meaning-in-english">{{meaning}}</a>
-                            <a ng-show="showTransl" ng-click="sayIt('{{meaning}}', 'dummy')"> ({{meaning | transliteration}})</a>
+                            <a ng-href="/bengali-word/{{meaning}}/meaning-in-english" ng-bind="meaning"></a>
+                            <span ng-show="showTransl">
+                                [<a ng-click="sayIt('{{meaning}}', 'dummy')" ng-bind="meaning | transliteration"></a>]
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -46,15 +54,15 @@
     </div>
 
     <div ng-show="definition.show">
-        <div class="row"><h3>Definition of <span class="searchBoxWord">{{searchBoxWord | capitalize}}</span></h3></div>
+        <div class="row"><h3>Definition of <span class="searchBoxWord" ng-bind="searchBoxWord | capitalize"></span></h3></div>
         <div ng-repeat="(partOfSpeech, definitions) in dictionary.definition">
-            <div class="row" ng-init="definition.show=true"><b>{{partOfSpeech | capitalize}}</b></div>
+            <div class="row" ng-init="definition.show=true"><b ng-bind="partOfSpeech | capitalize"></b></div>
             <div class="row">
                 <div ng-repeat='(index, definition) in definitions track by $index'>
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         <div>
-                            <a  ng-click="sayIt('{{definition}}', 'en-GB')"><span class="glyphicon glyphicon-volume-up"></span></a>
-                            <b>-</b> {{definition}}
+                            <a ng-click="sayIt('{{definition}}', 'en-GB')"><span class="glyphicon glyphicon-volume-up"></span></a>
+                            <b>- </b><span ng-bind="definition"></span>
                         </div>
                     </div>
                 </div>
@@ -63,15 +71,15 @@
     </div>
 
     <div ng-show="example.show">
-        <div class="row"><h3>Use of the word <span class="searchBoxWord">{{searchBoxWord | capitalize}}</span></h3></div>
+        <div class="row"><h3>Use of the word <span class="searchBoxWord" ng-bind="searchBoxWord | capitalize"></span></h3></div>
         <div ng-repeat="(partOfSpeech, examples) in dictionary.use">
-            <div class="row" ng-init="example.show=true"><b>{{partOfSpeech | capitalize}}</b></div>
+            <div class="row" ng-init="example.show=true"><b ng-bind="partOfSpeech | capitalize"></b></div>
             <div class="row">
                 <div ng-repeat='(index, example) in examples track by $index'>
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         <div>
                             <a  ng-click="sayIt('{{example}}', 'en-GB')"><span class="glyphicon glyphicon-volume-up"></span></a>
-                            <b>-</b> {{example}}
+                            <b>- </b><span ng-bind="example"></span>
                         </div>
                     </div>
                 </div>
@@ -80,15 +88,15 @@
     </div>
 
     <div ng-show="synonym.show">
-        <div class="row"><h3>Synonym of <span class="searchBoxWord">{{searchBoxWord | capitalize}}</span></h3></div>
+        <div class="row"><h3>Synonym of <span class="searchBoxWord" ng-bind="searchBoxWord | capitalize"></span></h3></div>
         <div ng-repeat="(partOfSpeech, similarWords) in dictionary.synonym">
-            <div class="row"><b>{{partOfSpeech | capitalize}}</b></div>
+            <div class="row"><b ng-bind="partOfSpeech | capitalize"></b></div>
             <div class="row">
                 <div ng-repeat='similarWord in similarWords track by $index'>
                     <div class="col-xs-4 col-sm-4 col-md-3 col-lg-3" ng-init="synonym.show=true">
                         <div>
                             <a  ng-click="sayIt('{{similarWord}}', 'en-GB')"><span class="glyphicon glyphicon-volume-up"></span></a>
-                            <a ng-href="/english-word/{{similarWord}}/meaning-in-bengali">{{similarWord}}</a>
+                            <a ng-href="/english-word/{{similarWord}}/meaning-in-bengali" ng-bind="similarWord"></a>
                         </div>
                     </div>
                 </div>
@@ -97,13 +105,13 @@
     </div>
 
     <div ng-show="antonym.show">
-        <div class="row"><h3>Antonym of <span class="searchBoxWord">{{searchBoxWord | capitalize}}</span></h3></div>
+        <div class="row"><h3>Antonym of <span class="searchBoxWord" ng-bind="searchBoxWord | capitalize"></span></h3></div>
         <div class="row">
             <div ng-repeat="antonyms in dictionary.antonym track by $index">
                 <div class="col-xs-4 col-sm-4 col-md-3 col-lg-3" ng-init="antonym.show=true">
                     <div>
                         <a  ng-click="sayIt('{{antonyms}}', 'en-GB')"><span class="glyphicon glyphicon-volume-up"></span></a>
-                        <a ng-href="/english-word/{{antonyms}}/meaning-in-bengali">{{antonyms}}</a>
+                        <a ng-href="/english-word/{{antonyms}}/meaning-in-bengali" ng-bind="antonyms"></a>
                     </div>
                 </div>
             </div>
@@ -117,13 +125,11 @@
                 <div class="col-xs-4 col-sm-4 col-md-3 col-lg-3" ng-init="seeAlso.show=true">
                     <div>
                         <a  ng-click="sayIt('{{same}}', 'en-GB')"><span class="glyphicon glyphicon-volume-up"></span></a>
-                        <a ng-href="/english-word/{{same}}/meaning-in-bengali">{{same}}</a>
+                        <a ng-href="/english-word/{{same}}/meaning-in-bengali" ng-bind="same"></a>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
-
 </div>
 

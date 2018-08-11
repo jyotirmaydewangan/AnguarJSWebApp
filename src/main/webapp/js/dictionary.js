@@ -1,6 +1,10 @@
 
-var dictionaryApp = angular.module('dictionaryApp', ['ngResource', 'ui.bootstrap', 'sidebarMenu', 'pubnub.angular.service'], function ($dialogProvider) {
+var dictionaryApp = angular.module('dictionaryApp', ['ngResource', 'ui.bootstrap', 'sidebarMenu', 'pubnub.angular.service', 'ngMeta'], function ($dialogProvider) {
     $dialogProvider.options({backdropClick: false, dialogFade: true});
+});
+
+dictionaryApp.run(function(ngMeta) {
+    ngMeta.init();
 });
 
 dictionaryApp.factory('DictionaryResource', function ($resource) {
@@ -15,15 +19,6 @@ dictionaryApp.factory('BrowseResource', function ($resource) {
     return $resource('/api/wordList/:lang/:char/:page', {}, {});
 });
 
-dictionaryApp.factory('Page', function(){
-    var title = 'default';
-    return {
-        title: function() { return title; },
-        setTitle: function(newTitle) { title = newTitle; }
-    };
-});
-
-
 dictionaryApp.factory('AutocompleteResource', function ($resource) {
     return $resource('/api/wordList/:lang/:word', {}, {
         query: {
@@ -36,12 +31,6 @@ dictionaryApp.factory('AutocompleteResource', function ($resource) {
     });
 });
 
-
-dictionaryApp.controller("titleCtrl", function($scope, Page) {
-    $scope.Page = Page;
-});
-
-
 dictionaryApp.filter('capitalize', function() {
     return function(input) {
         return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
@@ -53,7 +42,6 @@ dictionaryApp.filter('transliteration', function() {
         return transl(input);
     }
 });
-
 
 dictionaryApp.filter('highlight', function($sce) {
     return function(text, phrase) {
@@ -76,8 +64,6 @@ dictionaryApp.controller("HeaderCtrl", ['$scope', 'ControllerSharingData', 'virt
         hindi   :{ url: 'partials/keyboard/hindiKeyboard.html'},
         telugu  :{ url: 'partials/keyboard/teluguKeyboard.html'}
     };
-
-
 
     $scope.toggleState = function() {
         $scope.state = !$scope.state;
@@ -124,29 +110,26 @@ dictionaryApp.service('virtualKeyBoard', function() {
 });
 
 
-dictionaryApp.controller('DetailController', function($scope, $location, ControllerSharingData, Page) {
+dictionaryApp.controller('DetailController', function($scope, $location, ControllerSharingData, ngMeta) {
 
     $scope.HeaderData = ControllerSharingData;
 
-    $scope.$watch('updateBrowse', function() {
-
-        if($location.path().substr(1) == "privacy") {
-            $scope.HeaderData.finalHeader = "";
-            Page.setTitle("privacy policy | xyz.com");
-        } else if($location.path().substr(1) == "terms") {
-            $scope.HeaderData.finalHeader = "";
-            Page.setTitle("terms of Use | xyz.com");
-        } else if($location.path().substr(1) == "about") {
-            $scope.HeaderData.finalHeader = "";
-            Page.setTitle("about us | xyz.com");
-        } else if($location.path().substr(1) == "home") {
-            $scope.HeaderData.finalHeader = "";
-            Page.setTitle("home");
-        }
-    });
+    if($location.path().substr(1) == "privacy") {
+        $scope.HeaderData.finalHeader = "";
+        ngMeta.setTitle("privacy policy | xyz.com");
+    } else if($location.path().substr(1) == "terms") {
+        $scope.HeaderData.finalHeader = "";
+        ngMeta.setTitle("terms of Use | xyz.com");
+    } else if($location.path().substr(1) == "about") {
+        $scope.HeaderData.finalHeader = "";
+        ngMeta.setTitle("about us | xyz.com");
+    } else if($location.path().substr(1) == "home") {
+        $scope.HeaderData.finalHeader = "";
+        ngMeta.setTitle("home");
+    }
 });
 
-dictionaryApp.controller('BrowseController', [ '$scope', '$location', '$routeParams', 'BrowseResource', 'ControllerSharingData', 'Page', 'virtualKeyBoard', function($scope, $location, $routeParams, BrowseResource, ControllerSharingData, Page, virtualKeyBoard) {
+dictionaryApp.controller('BrowseController', [ '$scope', '$location', '$routeParams', 'BrowseResource', 'ControllerSharingData', 'virtualKeyBoard', 'ngMeta', function($scope, $location, $routeParams, BrowseResource, ControllerSharingData, virtualKeyBoard, ngMeta) {
 
     $scope.char = $routeParams.char;
     $scope.source = $routeParams.source;
@@ -157,9 +140,9 @@ dictionaryApp.controller('BrowseController', [ '$scope', '$location', '$routePar
     $scope.virtualKeyBoard = virtualKeyBoard;
 
     if($scope.target != undefined) {
-        Page.setTitle($scope.source + " to "+ $scope.target + " dictionary | xyz.com");
+        ngMeta.setTitle($scope.source + " to "+ $scope.target + " dictionary | xyz.com");
     } else {
-        Page.setTitle("List of Dictionary | xyz.com");
+        ngMeta.setTitle("xyz.com");
     }
 
     $scope.range = function(min, max, step) {
@@ -171,13 +154,14 @@ dictionaryApp.controller('BrowseController', [ '$scope', '$location', '$routePar
         return input;
     };
 
-    $scope.$watch('updateBrowse', function() {
+    $scope.populateWords =  function() {
 
         if($scope.target != undefined) {
             $scope.HeaderData.finalHeader = $scope.source + " to " + $scope.target + " dictionary";
             $scope.HeaderData.source = $scope.source;
             $scope.HeaderData.target = $scope.target;
-            $scope.virtualKeyBoard.setKeyBoard($scope.source);
+
+            $scope.virtualKeyBoard.setKeyBoard("");
 
             var paramForm  = {};
             paramForm.char = $scope.char;
@@ -191,12 +175,15 @@ dictionaryApp.controller('BrowseController', [ '$scope', '$location', '$routePar
         } else {
             //$scope.HeaderData.finalHeader = "Browse dictionary";
         }
-    });
+    };
+
+    $scope.cleanList = function () {
+        $scope.HeaderData.finalHeader = "";
+        $scope.virtualKeyBoard.setKeyBoard("");
+    }
 }]);
 
-dictionaryApp.controller("DictionaryCtrl", ['$scope', '$http', '$rootScope', '$location', '$window', '$routeParams', 'DictionaryResource', 'ReverseDictionaryResource', 'AutocompleteResource', 'ControllerSharingData', 'Page', 'Pubnub', 'virtualKeyBoard', function($scope, $http, $rootScope, $location, $window, $routeParams,DictionaryResource, ReverseDictionaryResource, AutocompleteResource, ControllerSharingData, Page, Pubnub, virtualKeyBoard) {
-
-    Page.setTitle($location.path().split("/")[2].replace(/-/g, ' ') + " meaning | xyz.com");
+dictionaryApp.controller("DictionaryCtrl", ['$scope', '$http', '$rootScope', '$location', '$window', '$routeParams', 'DictionaryResource', 'ReverseDictionaryResource', 'AutocompleteResource', 'ControllerSharingData', 'Pubnub', 'virtualKeyBoard', 'ngMeta',function($scope, $http, $rootScope, $location, $window, $routeParams,DictionaryResource, ReverseDictionaryResource, AutocompleteResource, ControllerSharingData, Pubnub, virtualKeyBoard, ngMeta) {
 
     $scope.DictionaryForm = {
         show: true,
@@ -237,11 +224,6 @@ dictionaryApp.controller("DictionaryCtrl", ['$scope', '$http', '$rootScope', '$l
         show: false
     }
 
-    $scope.$watch('updateHeader', function() {
-        $scope.HeaderData.finalHeader = $scope.HeaderData.source + " to " + $scope.HeaderData.target + " Dictionary";
-        $scope.virtualKeyBoard.setKeyBoard($scope.HeaderData.source);
-    });
-
     $scope.searchWord = function (word) {
 
         if (word.word != undefined && $scope.searchBoxWord != word.word) {
@@ -257,10 +239,22 @@ dictionaryApp.controller("DictionaryCtrl", ['$scope', '$http', '$rootScope', '$l
             $scope.HeaderData.source = 'english';
             $scope.HeaderData.target = word.lang;
 
-            Page.setTitle(word.word + " definition in " + word.lang + " - "
+            $scope.HeaderData.finalHeader = $scope.HeaderData.source + " to " + $scope.HeaderData.target + " Dictionary";
+            $scope.virtualKeyBoard.setKeyBoard($scope.HeaderData.source);
+
+            ngMeta.setTitle(word.word + " definition in " + word.lang + " - "
                 + word.word + " in " + word.lang + " - "
                 + word.word + " meaning in " + word.lang
                 + " | xyz.com");
+
+            ngMeta.setTag("description",
+                "Meaning of " + word.word + " in " + word.lang + " with synonym (similar) and antonym (opposite) words. " +
+                "You will get definition and pronunciation of '" + word.word + "'. " +
+                "Also find use of '" + word.word + "' and example sentences in english.");
+
+            ngMeta.setTag("keywords",
+                word.word + ", " + word.word + " in " + word.lang + ", " + word.word + " meaning in " + word.lang +
+                ", definition of " + word.word + ", use of word " + word.word + ", pronunciation of " + word.word);
 
             if(word.word != undefined && $location.path().indexOf('/'+ word.word + '/') === -1) {
                 $location.url("/english-word/" + word.word + "/meaning-in-" + word.lang);
@@ -269,7 +263,7 @@ dictionaryApp.controller("DictionaryCtrl", ['$scope', '$http', '$rootScope', '$l
                     $scope.dictionary = result;
                 });
                 $window.ga('set', 'page', $location.path());
-                $window.ga('send', 'pageview',{'title': Page.title()});
+                $window.ga('send', 'pageview',{'title': ngMeta.title});
             }
         }
     };
@@ -289,10 +283,20 @@ dictionaryApp.controller("DictionaryCtrl", ['$scope', '$http', '$rootScope', '$l
             $scope.HeaderData.source = word.lang;
             $scope.HeaderData.target = 'english';
 
-            Page.setTitle(word.word + " definition in english - "
+            $scope.HeaderData.finalHeader = $scope.HeaderData.source + " to " + $scope.HeaderData.target + " Dictionary";
+            $scope.virtualKeyBoard.setKeyBoard($scope.HeaderData.source);
+
+            ngMeta.setTitle(word.word + " definition in english - "
                 + word.word + " in english - "
                 + word.word + " meaning in english"
                 + " | xyz.com");
+
+            ngMeta.setTag("description",
+                "Meaning of " + word.word + " in english");
+
+            ngMeta.setTag("keywords",
+                word.word + ", " + word.word + " in english, " + word.word + " meaning in " +", definition of " + word.word + ", use of word " + word.word + ", pronunciation of " + word.word);
+
 
             if(word.word != undefined && $location.path().indexOf('/'+ word.word + '/') === -1) {
                 $location.url("/" + word.lang + "-word/" + word.word + "/meaning-in-english");
@@ -301,7 +305,7 @@ dictionaryApp.controller("DictionaryCtrl", ['$scope', '$http', '$rootScope', '$l
                     $scope.dictionary = result;
                 });
                 $window.ga('set', 'page', $location.path());
-                $window.ga('send', 'pageview',{'title': Page.title()});
+                $window.ga('send', 'pageview',{'title': ngMeta.title});
             }
         }
     };
