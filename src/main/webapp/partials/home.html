@@ -1,7 +1,33 @@
- <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-controller="BrowseController" ng-init="cleanList()">
-     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><h3>Welcome To Dictionary!</h3></div>
-         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><p>Entheos specializes in customized website design to match the specific   requirements of our customers. Our eye-catching and striking websites   are professionally designed for ease of navigation. Our expertise ranges   from graphic and layout design to CSS and Flash animation. Take a look   at our  to view the websites we've created for our international clients. Try out our popular that combine the best in web design at the most affordable prices.</p>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-controller="DictionaryCtrl" ng-init="cleanList()">
+         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding-top: 5%">
+             <div class="row">
+                 <div class="col-lg-3"></div>
+                 <div class="col-lg-6">
+                     <h3>Welcome To Dictionary</h3>
+                 </div>
+                 <div class="col-lg-3"></div>
+             </div>
+             <div class="row">
+                 <div class="col-lg-3"></div>
+                 <div class="col-lg-6">
+                     <form class="example" ng-submit="searchWord(DictionaryForm.text)">
+                         <input type="text" placeholder="Search Word ..." ng-model="DictionaryForm.text.word" ng-keyup="complete(DictionaryForm.text.word, 'english')" class="form-control">
+
+                         <ul class="list-group" ng-model="hideAutoCompleteList" ng-hide="hideAutoCompleteList">
+                             <li class="list-group-item"
+                                 ng-repeat="countryData in filterWords"
+                                 ng-click="fillTextBox(countryData)">
+                                 <a ng-href="/english-word/{{countryData}}/meaning-in-hindi">
+                                     <div ng-bind-html="countryData | highlight:DictionaryForm.text.word"></div>
+                                 </a>
+                             </li>
+                         </ul>
+
+                         <input type="text" ng-show="false" ng-model="DictionaryForm.text.lang" ng-init="DictionaryForm.text.lang ='hindi'; HeaderData.source = 'english'; HeaderData.target = 'hindi'">
+                         <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-search"></i></button>
+                     </form>
+                 </div>
+                 <div class="col-lg-3"></div>
+             </div>
         </div>
-     </div>
  </div>

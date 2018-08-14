@@ -359,6 +359,11 @@ dictionaryApp.controller("DictionaryCtrl", ['$scope', '$http', '$rootScope', '$l
         window.speechSynthesis.speak(speech);
     };
 
+    $scope.cleanList = function () {
+        $scope.HeaderData.finalHeader = "";
+        $scope.virtualKeyBoard.setKeyBoard("");
+    }
+
 }]);
 
 
