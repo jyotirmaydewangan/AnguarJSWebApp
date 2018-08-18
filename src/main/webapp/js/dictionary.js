@@ -116,13 +116,13 @@ dictionaryApp.controller('DetailController', function($scope, $location, Control
 
     if($location.path().substr(1) == "privacy") {
         $scope.HeaderData.finalHeader = "";
-        ngMeta.setTitle("privacy policy | xyz.com");
+        ngMeta.setTitle("privacy policy | nobledictionary.com");
     } else if($location.path().substr(1) == "terms") {
         $scope.HeaderData.finalHeader = "";
-        ngMeta.setTitle("terms of Use | xyz.com");
+        ngMeta.setTitle("terms of Use | nobledictionary.com");
     } else if($location.path().substr(1) == "about") {
         $scope.HeaderData.finalHeader = "";
-        ngMeta.setTitle("about us | xyz.com");
+        ngMeta.setTitle("about us | nobledictionary.com");
     } else if($location.path().substr(1) == "home") {
         $scope.HeaderData.finalHeader = "";
         ngMeta.setTitle("home");
@@ -140,9 +140,9 @@ dictionaryApp.controller('BrowseController', [ '$scope', '$location', '$routePar
     $scope.virtualKeyBoard = virtualKeyBoard;
 
     if($scope.target != undefined) {
-        ngMeta.setTitle($scope.source + " to "+ $scope.target + " dictionary | xyz.com");
+        ngMeta.setTitle($scope.source + " to "+ $scope.target + " dictionary | nobledictionary.com");
     } else {
-        ngMeta.setTitle("xyz.com");
+        ngMeta.setTitle("nobledictionary.com");
     }
 
     $scope.range = function(min, max, step) {
@@ -245,7 +245,7 @@ dictionaryApp.controller("DictionaryCtrl", ['$scope', '$http', '$rootScope', '$l
             ngMeta.setTitle(word.word + " definition in " + word.lang + " - "
                 + word.word + " in " + word.lang + " - "
                 + word.word + " meaning in " + word.lang
-                + " | xyz.com");
+                + " | nobledictionary.com");
 
             ngMeta.setTag("description",
                 "Meaning of " + word.word + " in " + word.lang + " with synonym (similar) and antonym (opposite) words. " +
@@ -289,7 +289,7 @@ dictionaryApp.controller("DictionaryCtrl", ['$scope', '$http', '$rootScope', '$l
             ngMeta.setTitle(word.word + " definition in english - "
                 + word.word + " in english - "
                 + word.word + " meaning in english"
-                + " | xyz.com");
+                + " | nobledictionary.com");
 
             ngMeta.setTag("description",
                 "Meaning of " + word.word + " in english");
