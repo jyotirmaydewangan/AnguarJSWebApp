@@ -23,9 +23,9 @@
 
     <div ng-show="target.show" ng-init="searchReverseWord(DictionaryForm.text)">
         <div class="row">
-            <h3>
+            <h1>
                 <span class="searchBoxWord">{{searchBoxWord | capitalize}}</span> meaning in urdu
-            </h3>
+            </h1>
         </div>
         <div ng-repeat="(partOfSpeech, meanings) in dictionary.meaning">
             <div class="row" ng-init="target.show=true"><b>{{partOfSpeech | capitalize}}</b></div>

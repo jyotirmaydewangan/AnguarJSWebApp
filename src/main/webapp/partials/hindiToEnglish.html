@@ -23,10 +23,10 @@
 
     <div ng-show="target.show" ng-init="searchReverseWord(DictionaryForm.text)">
         <div class="row">
-            <h3>
+            <h1>
                 <a ng-click="sayIt('{{searchBoxWord}}', 'hi-IN')"><span class="glyphicon glyphicon-volume-up"></span></a>
                 <span class="searchBoxWord">{{searchBoxWord | capitalize}}</span> meaning in English
-            </h3>
+            </h1>
         </div>
         <div ng-repeat="(partOfSpeech, meanings) in dictionary.meaning">
             <div class="row" ng-init="target.show=true"><b>{{partOfSpeech | capitalize}}</b></div>
