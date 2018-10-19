@@ -35,6 +35,8 @@
                 <span style="padding-left:40px">Transliteration</span>
             </label>
         </div>
+        <div class="col-xs-12 col-sm-12 hidden-md hidden-lg">&nbsp;</div>
+
         <div ng-repeat="(partOfSpeech, meanings) in dictionary.meaning">
             <div class="row" ng-init="target.show=true"><b ng-bind="partOfSpeech | capitalize"></b></div>
             <div class="row">
@@ -48,6 +50,7 @@
                             </span>
                         </div>
                     </div>
+                    <div class="col-xs-12 col-sm-12 hidden-md hidden-lg">&nbsp;</div>
                 </div>
             </div>
         </div>
@@ -99,6 +102,7 @@
                             <a ng-href="/english-word/{{similarWord}}/meaning-in-telugu" ng-bind="similarWord"></a>
                         </div>
                     </div>
+                    <div class="col-xs-12 col-sm-12 hidden-md hidden-lg">&nbsp;</div>
                 </div>
             </div>
         </div>
@@ -114,6 +118,7 @@
                         <a ng-href="/english-word/{{antonyms}}/meaning-in-telugu" ng-bind="antonyms"></a>
                     </div>
                 </div>
+                <div class="col-xs-12 col-sm-12 hidden-md hidden-lg">&nbsp;</div>
             </div>
         </div>
     </div>
@@ -128,6 +133,7 @@
                         <a ng-href="/english-word/{{same}}/meaning-in-telugu" ng-bind="same"></a>
                     </div>
                 </div>
+                <div class="col-xs-12 col-sm-12 hidden-md hidden-lg">&nbsp;</div>
             </div>
         </div>
     </div>
