@@ -242,19 +242,18 @@ dictionaryApp.controller("DictionaryCtrl", ['$scope', '$http', '$rootScope', '$l
             $scope.HeaderData.finalHeader = $scope.HeaderData.source + " to " + $scope.HeaderData.target + " Dictionary";
             $scope.virtualKeyBoard.setKeyBoard($scope.HeaderData.source);
 
-            ngMeta.setTitle(word.word + " definition in " + word.lang + " - "
-                + word.word + " in " + word.lang + " - "
-                + word.word + " meaning in " + word.lang
-                + " | nobledictionary.com");
+            ngMeta.setTitle(word.word + " meaning in " + word.lang + " - "
+                         + "Meaning of " + word.word + " in " + word.lang
+                         + " | nobledictionary.com");
 
             ngMeta.setTag("description",
-                "Meaning of " + word.word + " in " + word.lang + " with synonym (similar) and antonym (opposite) words. " +
-                "You will get definition and pronunciation of '" + word.word + "'. " +
-                "Also find use of '" + word.word + "' and example sentences in english.");
+                "Meaning of '" + word.word + "' in " + word.lang + " with synonym and antonym words. " +
+                "Get use of '" + word.word + "' with example sentences in english. " +
+                "Also find definition and pronunciation of '" + word.word + "'.");
 
             ngMeta.setTag("keywords",
-                word.word + ", " + word.word + " in " + word.lang + ", " + word.word + " meaning in " + word.lang +
-                ", definition of " + word.word + ", use of word " + word.word + ", pronunciation of " + word.word);
+                word.word + " in " + word.lang + ", " + word.word + " meaning in " + word.lang +
+                ", example sentences of " + word.word + ", use of word " + word.word + ", pronunciation of " + word.word);
 
             if(word.word != undefined && $location.path().indexOf('/'+ word.word + '/') === -1) {
                 $location.url("/english-word/" + word.word + "/meaning-in-" + word.lang);
@@ -286,16 +285,14 @@ dictionaryApp.controller("DictionaryCtrl", ['$scope', '$http', '$rootScope', '$l
             $scope.HeaderData.finalHeader = $scope.HeaderData.source + " to " + $scope.HeaderData.target + " Dictionary";
             $scope.virtualKeyBoard.setKeyBoard($scope.HeaderData.source);
 
-            ngMeta.setTitle(word.word + " definition in english - "
-                + word.word + " in english - "
-                + word.word + " meaning in english"
+            ngMeta.setTitle(word.word + " meaning in english - "
+                + "Meaning of " + word.word + " in english"
                 + " | nobledictionary.com");
 
-            ngMeta.setTag("description",
-                "Meaning of " + word.word + " in english");
+            ngMeta.setTag("description", "Meaning of " + word.word + " in english");
 
             ngMeta.setTag("keywords",
-                word.word + ", " + word.word + " in english, " + word.word + " meaning in " +", definition of " + word.word + ", use of word " + word.word + ", pronunciation of " + word.word);
+                word.word + " in english, " + word.word + " meaning in english" + ", definition of " + word.word + ", use of word " + word.word + ", pronunciation of " + word.word);
 
 
             if(word.word != undefined && $location.path().indexOf('/'+ word.word + '/') === -1) {
